@@ -107,6 +107,32 @@ repositories {
         name 'CleanroomMC Maven'
         url 'https://maven.cleanroommc.com'
     }
+    maven {
+        name = "CurseMaven"
+        url "https://www.cursemaven.com/"
+    }
+    maven {
+        name = "CoFH Maven"
+        url "https://maven.covers1624.net"
+    }
+    maven {
+        name = "BlameJared Maven"
+        url "https://maven.blamejared.com/"
+    }
+    maven {
+        name = "tterrag Maven"
+        url "https://maven.tterrag.com/"
+    }
+    maven {
+        // location of the maven that hosts JEI files
+        name = "Progwml6 maven"
+        url = "https://dvs1.progwml6.com/files/maven/"
+    }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
 }
 
 dependencies {
@@ -144,6 +170,18 @@ dependencies {
         testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     }
+
+
+    //Mod Dependencies
+
+    //Hard Deps
+    implementation "curse.maven:tinkers-construct-74072:2902483"
+    implementation "curse.maven:mantle-74924:2713386"
+
+    //Environment util
+    implementation "mezz.jei:jei_1.12.2:4.16.1.1013"
+
+    //Integrated mods
 }
 
 apply from: 'gradle/scripts/dependencies.gradle'
