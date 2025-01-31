@@ -105,23 +105,23 @@ minecraft {
 repositories {
     maven {
         name 'CleanroomMC Maven'
-        url 'https://maven.cleanroommc.com'
+        url = 'https://maven.cleanroommc.com'
     }
     maven {
         name = "CurseMaven"
-        url "https://www.cursemaven.com/"
+        url = "https://www.cursemaven.com/"
     }
     maven {
         name = "CoFH Maven"
-        url "https://maven.covers1624.net"
+        url = "https://maven.covers1624.net"
     }
     maven {
         name = "BlameJared Maven"
-        url "https://maven.blamejared.com/"
+        url = "https://maven.blamejared.com/"
     }
     maven {
         name = "tterrag Maven"
-        url "https://maven.tterrag.com/"
+        url = "https://maven.tterrag.com/"
     }
     maven {
         // location of the maven that hosts JEI files
@@ -132,6 +132,10 @@ repositories {
         // location of a maven mirror for JEI files, as a fallback
         name = "ModMaven"
         url = "https://modmaven.dev"
+    }
+    maven {
+        name = "Thiakil Maven"
+        url = "https://maven.thiakil.com/"
     }
 }
 
@@ -182,6 +186,13 @@ dependencies {
     implementation "mezz.jei:jei_1.12.2:4.16.1.1013"
 
     //Integrated mods
+    implementation "vazkii.botania:Botania:r1.10-364.4"
+    implementation "com.azanor.baubles:Baubles:1.12-1.5.2"
+
+    implementation "curse.maven:ftb-money-forge-306283:3010526"
+    implementation "curse.maven:ftb-quests-forge-289412:3156637"
+    implementation "curse.maven:ftb-library-legacy-forge-237167:2985811"
+    implementation "curse.maven:item-filters-309674:3003364"
 }
 
 apply from: 'gradle/scripts/dependencies.gradle'

@@ -1,0 +1,16 @@
+modifier.quarky.name=Quarky
+modifier.quarky.desc=Neat is a mod by Vazkii\nFor every item from a mod by Vazkii in your hotbar, damage is increased by up to 6.4%, depending on how close to the stack's size is to max.
+
+modifier.die_instantly.name=Background Radiation
+modifier.die_instantly.desc=Click here to Die Instantly!\nHazardous to your health, maybe.
+
+death.attack.heart_attack=%s died of a Heart Attack.
+
+modifier.supercritical.name=Supercritical
+modifier.supercritical.desc=Radioactive, Radioactive...\nBuild Charge when attacking, and unleash it when fully Charged to deal massive damage.
+
+modifier.capitalism.name=Capitalism
+modifier.capitalism.desc=ONE MILLION DOLLARS\nImproves your attacks, but drains your Money. Effects are stronger when you have more Money.
+
+modifier.sellout.name=Sellout
+modifier.sellout.desc=§oThis Modifier is Sponsored by...§r\nInstantly sells Drops from Blocks and Mobs, if they can be sold.
