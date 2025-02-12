@@ -1,6 +1,5 @@
 package com.emperdog.tinkertantrum;
 
-import com.emperdog.tinkertantrum.trait.ftbmoney.ModifierSellout;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -31,10 +30,10 @@ public class TinkerTantrumMod {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         LOGGER.info("is FTB Money loaded? {}", Loader.isModLoaded("ftbmoney"));
-        if(Loader.isModLoaded("ftbmoney"))
+        if(Loader.isModLoaded("ftbmoney")) {
             TinkerTantrumConfig.loadSellables();
-
-        MinecraftForge.EVENT_BUS.register(TinkerTantrumTraits.SELLOUT);
+            MinecraftForge.EVENT_BUS.register(TinkerTantrumTraits.SELLOUT);
+        }
     }
 
 }

@@ -28,7 +28,7 @@ public class TraitQuarky extends AbstractTrait {
             ItemStack item = inventory.getStackInSlot(slot);
             if(!item.isEmpty())
                 if(MODS_BY_VAZKII.contains(item.getItem().getRegistryName().getNamespace()))
-                    newDamage *= 1.0f + ((0.064f / item.getMaxStackSize() * item.getCount()));
+                    newDamage *= 1.0f + ((0.064f / item.getMaxStackSize()) * item.getCount());
         }
         //TinkerTantrumMod.LOGGER.info(newDamage);
 
