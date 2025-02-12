@@ -1,7 +1,6 @@
 package com.emperdog.tinkertantrum.trait;
 
 import com.emperdog.tinkertantrum.Identifiers;
-import com.emperdog.tinkertantrum.TinkerTantrumMod;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -16,7 +15,7 @@ public class TraitQuarky extends AbstractTrait {
     public static final List<String> MODS_BY_VAZKII = Arrays.asList("botania", "quark", "patchouli", "akashictome");
 
     public TraitQuarky() {
-        super(Identifiers.TRAIT_QUARKY, 0x000000);
+        super(Identifiers.QUARKY, 0x000000);
     }
 
     @Override

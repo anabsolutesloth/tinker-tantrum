@@ -193,6 +193,15 @@ dependencies {
     implementation "curse.maven:ftb-quests-forge-289412:3156637"
     implementation "curse.maven:ftb-library-legacy-forge-237167:2985811"
     implementation "curse.maven:item-filters-309674:3003364"
+
+    implementation "curse.maven:electroblobs-wizardry-265642:5354477"
+    implementation "curse.maven:ancient-spellcraft-358124:5413256"
+    implementation "curse.maven:wizardryutils-608287:5338903"
+
+    implementation "curse.maven:constructs-armory-287683:3174535"
+
+    implementation "curse.maven:rats-323596:3028671"
+    implementation rfg.deobf("curse.maven:llibrary-243298:2504999")
 }
 
 apply from: 'gradle/scripts/dependencies.gradle'

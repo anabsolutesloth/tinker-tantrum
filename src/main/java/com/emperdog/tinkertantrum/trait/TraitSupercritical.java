@@ -2,7 +2,6 @@ package com.emperdog.tinkertantrum.trait;
 
 import com.emperdog.tinkertantrum.Identifiers;
 import com.emperdog.tinkertantrum.TinkerTantrumConfig;
-import com.emperdog.tinkertantrum.TinkerTantrumMod;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;

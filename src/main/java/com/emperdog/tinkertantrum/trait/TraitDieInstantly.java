@@ -15,7 +15,7 @@ public class TraitDieInstantly extends AbstractTrait {
     public static final DamageSource HEART_ATTACK = new DamageSource("heart_attack").setDamageBypassesArmor().setDamageAllowedInCreativeMode();
 
     public TraitDieInstantly() {
-        super(Identifiers.TRAIT_DIE_INSTANTLY, 0x000000);
+        super(Identifiers.DIE_INSTANTLY, 0x000000);
     }
 
     @Override

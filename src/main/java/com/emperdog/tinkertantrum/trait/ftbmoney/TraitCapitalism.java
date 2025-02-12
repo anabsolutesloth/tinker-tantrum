@@ -14,7 +14,7 @@ public class TraitCapitalism extends AbstractTrait {
     public static float[] damageModifiers = {1.05f, 1.15f, 1.30f, 1.50f};
 
     public TraitCapitalism() {
-        super(Identifiers.TRAIT_CAPITALISM, 0x000000);
+        super(Identifiers.CAPITALISM, 0x000000);
     }
 
     @Override
@@ -25,7 +25,7 @@ public class TraitCapitalism extends AbstractTrait {
         int level = getLevel(balance);
         int tax = level >= 0 ? taxes[level] : 0;
 
-        if(balance > tax) {
+        if(level != -1 && balance > tax) {
             //TinkerTantrumMod.LOGGER.info("level: {}, modifier: {}, tax: {}", level, damageModifiers[level], taxes[level]);
             FTBMoney.setMoney(actualPlayer, balance - tax);
             return newDamage * damageModifiers[level];
@@ -34,7 +34,7 @@ public class TraitCapitalism extends AbstractTrait {
     }
 
     // based on BloodMagic's ItemSentientSword#getLevel()
-    public int getLevel(long balance) {
+    public static int getLevel(long balance) {
         int level = -1;
         for (int i = 0; i < brackets.length; i++)
             if(balance >= brackets[i])

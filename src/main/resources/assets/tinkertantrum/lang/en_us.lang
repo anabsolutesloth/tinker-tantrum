@@ -17,3 +17,18 @@ modifier.sellout.desc=§oThis Modifier is Sponsored by...§r\nInstantly sells Dr
 
 modifier.home_run.name=Home Run
 modifier.home_run.desc=§oUp on the C-Stick§r\nConverts damage dealt into upwards momentum.
+
+modifier.antimagic.name=Anti-magic
+modifier.antimagic.desc=§oHeresy!§r\nReduces the Potency of Magic used by the wielder and struck foes.
+
+
+# Armor-Specific
+modifier.antimagic_armor.name=Anti-magic
+modifier.antimagic_armor.desc=§oHeresy!§r\nGrants excellent protection from Magical attacks, but makes your Spells less potent.
+
+modifier.capitalism_armor.name=Capitalism
+modifier.capitalism_armor.desc=§oONE MILLION DOLLARS§r\nReduces damage taken, but drains your Money. Effects are stronger when you have more Money.
+
+
+# Materials
+material.devoritium.name=Devoritium

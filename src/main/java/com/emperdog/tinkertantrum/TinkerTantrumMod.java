@@ -29,7 +29,7 @@ public class TinkerTantrumMod {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        LOGGER.info("is FTB Money loaded? {}", Loader.isModLoaded("ftbmoney"));
+        //LOGGER.info("is FTB Money loaded? {}", Loader.isModLoaded("ftbmoney"));
         if(Loader.isModLoaded("ftbmoney")) {
             TinkerTantrumConfig.loadSellables();
             MinecraftForge.EVENT_BUS.register(TinkerTantrumTraits.SELLOUT);

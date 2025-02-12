@@ -1,6 +1,7 @@
 package com.emperdog.tinkertantrum;
 
 import com.emperdog.tinkertantrum.trait.TraitHomeRun;
+import com.emperdog.tinkertantrum.trait.ancientspellcraft.TraitAntimagic;
 import com.emperdog.tinkertantrum.trait.ftbmoney.ModifierSellout;
 import com.emperdog.tinkertantrum.trait.ftbmoney.TraitCapitalism;
 import com.emperdog.tinkertantrum.trait.TraitDieInstantly;
@@ -19,6 +20,8 @@ public class TinkerTantrumTraits {
 
     public static final TraitHomeRun HOME_RUN = new TraitHomeRun();
 
+    public static final TraitAntimagic ANTIMAGIC = new TraitAntimagic();
+
 
     //FTB Money
     public static final TraitCapitalism CAPITALISM = new TraitCapitalism();
@@ -28,7 +31,5 @@ public class TinkerTantrumTraits {
 
     public static void initModifierRecipes() {
 
-        if(Loader.isModLoaded("ftbmoney"))
-            SELLOUT.addItem(Blocks.GOLD_BLOCK, 1);
     }
 }
