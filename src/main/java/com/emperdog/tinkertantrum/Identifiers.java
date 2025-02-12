@@ -11,6 +11,8 @@ public class Identifiers {
 
     public static final String SELLOUT = "sellout";
 
+    public static final String HOME_RUN = "home_run";
+
     public static class Material {
         public static final String CHEAT_MATERIAL = "cheat_material";
     }

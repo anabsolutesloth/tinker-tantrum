@@ -1,5 +1,6 @@
 package com.emperdog.tinkertantrum;
 
+import com.emperdog.tinkertantrum.trait.TraitHomeRun;
 import com.emperdog.tinkertantrum.trait.ftbmoney.ModifierSellout;
 import com.emperdog.tinkertantrum.trait.ftbmoney.TraitCapitalism;
 import com.emperdog.tinkertantrum.trait.TraitDieInstantly;
@@ -16,12 +17,13 @@ public class TinkerTantrumTraits {
 
     public static final TraitSupercritical SUPERCRITICAL = new TraitSupercritical();
 
+    public static final TraitHomeRun HOME_RUN = new TraitHomeRun();
+
 
     //FTB Money
     public static final TraitCapitalism CAPITALISM = new TraitCapitalism();
 
     public static final ModifierSellout SELLOUT = new ModifierSellout();
-
 
 
     public static void initModifierRecipes() {

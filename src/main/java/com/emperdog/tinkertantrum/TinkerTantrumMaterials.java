@@ -23,6 +23,7 @@ public class TinkerTantrumMaterials {
         //CHEAT_MATERIAL.addTrait(TinkerTantrumTraits.DIE_INSTANTLY);
         //CHEAT_MATERIAL.addTrait(TinkerTantrumTraits.CAPITALISM);
         //CHEAT_MATERIAL.addTrait(TinkerTantrumTraits.SUPERCRITICAL);
+        CHEAT_MATERIAL.addTrait(TinkerTantrumTraits.HOME_RUN);
 
         TinkerRegistry.addMaterial(CHEAT_MATERIAL);
     }
