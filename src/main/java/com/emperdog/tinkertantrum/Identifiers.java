@@ -27,6 +27,7 @@ public class Identifiers {
 
         public static final String DEVORITIUM = "devoritium";
 
+        public static final String VOID_METAL = "void_metal";
     }
 
     //Armor-specific

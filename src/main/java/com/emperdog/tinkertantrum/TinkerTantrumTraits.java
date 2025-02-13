@@ -1,14 +1,13 @@
 package com.emperdog.tinkertantrum;
 
-import com.emperdog.tinkertantrum.trait.TraitHomeRun;
+import c4.conarm.lib.utils.RecipeMatchHolder;
+import com.emperdog.tinkertantrum.trait.*;
 import com.emperdog.tinkertantrum.trait.ancientspellcraft.TraitAntimagic;
+import com.emperdog.tinkertantrum.trait.conarm.thaumcraft.ModifierRevealing;
 import com.emperdog.tinkertantrum.trait.ftbmoney.ModifierSellout;
 import com.emperdog.tinkertantrum.trait.ftbmoney.TraitCapitalism;
-import com.emperdog.tinkertantrum.trait.TraitDieInstantly;
-import com.emperdog.tinkertantrum.trait.TraitQuarky;
-import com.emperdog.tinkertantrum.trait.TraitSupercritical;
-import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.Loader;
+import thaumcraft.api.items.ItemsTC;
 
 public class TinkerTantrumTraits {
 
@@ -20,7 +19,7 @@ public class TinkerTantrumTraits {
 
     public static final TraitHomeRun HOME_RUN = new TraitHomeRun();
 
-    public static final TraitAntimagic ANTIMAGIC = new TraitAntimagic();
+    public static final TraitNihilo NIHILO = new TraitNihilo();
 
 
     //FTB Money
@@ -33,11 +32,16 @@ public class TinkerTantrumTraits {
     public static final TraitAntimagic ANTIMAGIC = new TraitAntimagic();
 
 
+    //Rats
+    public static final TraitCheeseReaper CHEESE_REAPER = new TraitCheeseReaper();
+
+
     //Thaumcraft
     public static final ModifierRevealing REVEALING = new ModifierRevealing();
 
 
     public static void initModifierRecipes() {
-
+        if(Loader.isModLoaded("thaumcraft"))
+            RecipeMatchHolder.addItem(REVEALING, ItemsTC.goggles, 1, 1);
     }
 }
