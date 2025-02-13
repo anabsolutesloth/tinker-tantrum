@@ -5,7 +5,6 @@ import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.materials.PlatesMaterialStats;
 import c4.conarm.lib.materials.TrimMaterialStats;
 import com.emperdog.tinkertantrum.trait.conarm.TinkerTantrumArmorTraits;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.common.Loader;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.*;
@@ -17,11 +16,12 @@ public class TinkerTantrumMaterials {
 
     public static Material CHEAT_MATERIAL;
     public static Material DEVORITIUM;
+    public static Material VOID_METAL;
 
     public static void init() {
 
         //TODO: remove or rework CHEAT_MATERIAL
-        CHEAT_MATERIAL = new Material(Identifiers.Material.CHEAT_MATERIAL, TextFormatting.GREEN);
+        CHEAT_MATERIAL = new Material(Identifiers.Material.CHEAT_MATERIAL, 0x00FF00);
 
         CHEAT_MATERIAL.addStats(new HeadMaterialStats(100, 5.0f, 5.0f, 1))
                 .addStats(new HandleMaterialStats(1.0f, 100))
@@ -58,8 +58,9 @@ public class TinkerTantrumMaterials {
                 .addTrait(TinkerTantrumTraits.ANTIMAGIC, MaterialTypes.EXTRA);
 
         if(conarmLoaded) {
-            DEVORITIUM.addStats(new CoreMaterialStats(16, 5))
+            DEVORITIUM.addStats(new CoreMaterialStats(16, 15.0f))
                     .addStats(new PlatesMaterialStats(0.8f, 8, 1.0f))
+                    .addStats(new TrimMaterialStats(8))
                     .addTrait(TinkerTantrumArmorTraits.ANTIMAGIC, ArmorMaterialType.CORE)
                     .addTrait(TinkerTantrumArmorTraits.ANTIMAGIC, ArmorMaterialType.PLATES)
                     .addTrait(TinkerTantrumArmorTraits.ANTIMAGIC, ArmorMaterialType.TRIM);
@@ -67,6 +68,30 @@ public class TinkerTantrumMaterials {
 
         if(Loader.isModLoaded("ancientspellcraft")) {
             TinkerRegistry.addMaterial(DEVORITIUM);
+            DEVORITIUM.addItem("ingotDevoritium", 1, Material.VALUE_Ingot);
+            DEVORITIUM.setRepresentativeItem("ingotDevoritium");
+        }
+
+        //Thaumcraft
+        VOID_METAL = new Material(Identifiers.Material.VOID_METAL, 0x420641);
+
+        VOID_METAL.addStats(new HeadMaterialStats(57, 4.5f, 5.0f, HarvestLevels.DIAMOND))
+                .addStats(new HandleMaterialStats(0.6f, 125))
+                .addStats(new ExtraMaterialStats(90))
+                .addTrait(TinkerTantrumTraits.NIHILO, MaterialTypes.HEAD);
+
+        if(conarmLoaded) {
+            VOID_METAL.addStats(new CoreMaterialStats(9, 18.0f))
+                    .addStats(new PlatesMaterialStats(1.5f, 7, 0.8f))
+                    .addStats(new TrimMaterialStats(14))
+                    .addTrait(TinkerTantrumTraits.NIHILO, ArmorMaterialType.CORE)
+                    .addTrait(TinkerTantrumTraits.NIHILO, ArmorMaterialType.PLATES);
+        }
+
+        if(Loader.isModLoaded("thaumcraft")) {
+            TinkerRegistry.addMaterial(VOID_METAL);
+            VOID_METAL.addItem("ingotVoid", 1, Material.VALUE_Ingot);
+            VOID_METAL.setRepresentativeItem("ingotVoid");
         }
     }
 }

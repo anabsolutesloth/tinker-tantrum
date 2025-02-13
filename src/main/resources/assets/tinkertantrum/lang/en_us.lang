@@ -21,6 +21,9 @@ modifier.home_run.desc=§oUp on the C-Stick§r\nConverts damage dealt into upwar
 modifier.antimagic.name=Anti-magic
 modifier.antimagic.desc=§oHeresy!§r\nReduces the Potency of Magic used by the wielder and struck foes.
 
+modifier.nihilo.name=Ex Nihilo
+modifier.nihilo.desc=§oIt came from Nothing...§r\nThe tool will magically repair itself up to 50% of its maximum durability.
+
 
 # Armor-Specific
 modifier.antimagic_armor.name=Anti-magic
@@ -29,6 +32,10 @@ modifier.antimagic_armor.desc=§oHeresy!§r\nGrants excellent protection from Ma
 modifier.capitalism_armor.name=Capitalism
 modifier.capitalism_armor.desc=§oONE MILLION DOLLARS§r\nReduces damage taken, but drains your Money. Effects are stronger when you have more Money.
 
+modifier.revealing_armor.name=Revealing
+modifier.revealing_armor.desc=§oShow me your true form!§r\nActs as Goggles of Revealing.
+
 
 # Materials
 material.devoritium.name=Devoritium
+material.void_metal.name=Void Metal

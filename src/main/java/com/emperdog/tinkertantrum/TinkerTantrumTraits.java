@@ -29,6 +29,14 @@ public class TinkerTantrumTraits {
     public static final ModifierSellout SELLOUT = new ModifierSellout();
 
 
+    //Ancient Spellcraft
+    public static final TraitAntimagic ANTIMAGIC = new TraitAntimagic();
+
+
+    //Thaumcraft
+    public static final ModifierRevealing REVEALING = new ModifierRevealing();
+
+
     public static void initModifierRecipes() {
 
     }

@@ -1,7 +1,6 @@
 package com.emperdog.tinkertantrum.trait.ftbmoney;
 
 import com.emperdog.tinkertantrum.Identifiers;
-import com.emperdog.tinkertantrum.TinkerTantrumMod;
 import com.feed_the_beast.mods.money.FTBMoney;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -36,7 +35,7 @@ public class ModifierSellout extends ModifierTrait {
     public static final HashMap<String, Map<Integer, Long>> SELLABLE = new HashMap<>();
 
     public ModifierSellout() {
-        super(Identifiers.SELLOUT, 0xEDD924);
+        super(Identifiers.MOD_SELLOUT, 0xEDD924);
     }
 
     @Override
@@ -87,7 +86,7 @@ public class ModifierSellout extends ModifierTrait {
 
         NBTTagCompound tag = TagUtil.getTagSafe(player.getHeldItemMainhand());
         //TinkerTantrumMod.LOGGER.info("has sellout mod: {}", TinkerUtil.hasModifier(tag, Identifiers.SELLOUT));
-        if(!TinkerUtil.hasModifier(tag, Identifiers.SELLOUT)) return;
+        if(!TinkerUtil.hasModifier(tag, Identifiers.MOD_SELLOUT)) return;
 
         MutableLong addedMoney = new MutableLong();
 

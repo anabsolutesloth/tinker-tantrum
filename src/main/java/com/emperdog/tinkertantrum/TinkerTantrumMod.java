@@ -23,8 +23,6 @@ public class TinkerTantrumMod {
         LOGGER.info("Hello From {}!", Tags.MOD_NAME);
 
         TinkerTantrumMaterials.init();
-
-        TinkerTantrumTraits.initModifierRecipes();
     }
 
     @Mod.EventHandler
@@ -34,6 +32,11 @@ public class TinkerTantrumMod {
             TinkerTantrumConfig.loadSellables();
             MinecraftForge.EVENT_BUS.register(TinkerTantrumTraits.SELLOUT);
         }
+    }
+
+    @Mod.EventHandler
+    public void postInit(FMLPostInitializationEvent event) {
+        TinkerTantrumTraits.initModifierRecipes();
     }
 
 }
