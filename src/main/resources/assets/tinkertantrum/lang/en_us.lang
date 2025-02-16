@@ -18,16 +18,26 @@ modifier.sellout.desc=§oThis Modifier is Sponsored by...§r\nInstantly sells Dr
 modifier.home_run.name=Home Run
 modifier.home_run.desc=§oUp on the C-Stick§r\nConverts damage dealt into upwards momentum.
 
-modifier.antimagic.name=Anti-magic
-modifier.antimagic.desc=§oHeresy!§r\nReduces the Potency of Magic used by the wielder and struck foes.
+modifier.antimagic_1.name=Anti-magic
+modifier.antimagic_1.desc=§oHeresy!§r\nReduces the Potency of Magic used by the wielder and struck foes.
+modifier.antimagic_2.name=Anti-magic II
+modifier.antimagic_2.desc=§oHeresy!§r\nReduces the Potency of Magic used by the wielder and struck foes. Effects last longer and stack faster.
+
+modifier.cheese_reaper.name=Grim Cheepear
+modifier.cheese_reaper.desc=§oCheesy Punchline§r\nMakes killed mobs also drop Cheese.
 
 modifier.nihilo.name=Ex Nihilo
 modifier.nihilo.desc=§oIt came from Nothing...§r\nThe tool will magically repair itself up to 50% of its maximum durability.
 
+modifier.essence_powered.name=Essence-Infused
+modifier.essence_powered.desc=§oIt's Essential!§r\nConsumes tiered Essence from the Offhand to empower attacks. Stronger Essence has greater impact. Damage will be reduced without any Essence.
+
 
 # Armor-Specific
-modifier.antimagic_armor.name=Anti-magic
-modifier.antimagic_armor.desc=§oHeresy!§r\nGrants excellent protection from Magical attacks, but makes your Spells less potent.
+modifier.antimagic_1_armor.name=Anti-magic
+modifier.antimagic_1_armor.desc=§oHeresy!§r\nGrants great protection (30%) from Magical attacks, but makes your Spells less potent.
+modifier.antimagic_2_armor.name=Anti-magic II
+modifier.antimagic_2_armor.desc=§oHeresy!§r\nGrants excellent protection (60%) from Magical attacks, but makes your Spells less potent.
 
 modifier.capitalism_armor.name=Capitalism
 modifier.capitalism_armor.desc=§oONE MILLION DOLLARS§r\nReduces damage taken, but drains your Money. Effects are stronger when you have more Money.

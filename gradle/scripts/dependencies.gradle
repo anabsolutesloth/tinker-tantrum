@@ -94,4 +94,7 @@ dependencies {
     implementation rfg.deobf("curse.maven:llibrary-243298:2504999")
 
     implementation "curse.maven:thaumcraft-223628:2629023"
+
+    implementation "curse.maven:cumumber-272335:2645867"
+    implementation "curse.maven:mystical-agriculture-246640:2704562"
 }

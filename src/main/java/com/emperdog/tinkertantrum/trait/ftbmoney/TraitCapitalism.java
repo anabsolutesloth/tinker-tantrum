@@ -1,13 +1,17 @@
 package com.emperdog.tinkertantrum.trait.ftbmoney;
 
+import com.emperdog.tinkertantrum.IRequiresMods;
 import com.emperdog.tinkertantrum.Identifiers;
 import com.feed_the_beast.mods.money.FTBMoney;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-public class TraitCapitalism extends AbstractTrait {
+import java.util.List;
+
+public class TraitCapitalism extends AbstractTrait implements IRequiresMods {
 
     public static int[] brackets = {1000, 100000, 1000000, 1000000000};
     public static int[] taxes = {5, 100, 1000, 10000};
@@ -41,5 +45,10 @@ public class TraitCapitalism extends AbstractTrait {
                 level = i;
 
         return level;
+    }
+
+    @Override
+    public final List<String> getModsRequired() {
+        return ImmutableList.of("ftbmoney");
     }
 }

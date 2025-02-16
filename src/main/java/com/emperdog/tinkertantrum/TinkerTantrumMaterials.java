@@ -7,6 +7,7 @@ import c4.conarm.lib.materials.TrimMaterialStats;
 import com.emperdog.tinkertantrum.trait.conarm.TinkerTantrumArmorTraits;
 import net.minecraftforge.fml.common.Loader;
 import slimeknights.tconstruct.library.TinkerRegistry;
+import slimeknights.tconstruct.library.client.MaterialRenderInfo;
 import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.utils.HarvestLevels;
 
@@ -43,7 +44,8 @@ public class TinkerTantrumMaterials {
         //CHEAT_MATERIAL.addTrait(TinkerTantrumTraits.SUPERCRITICAL);
         //CHEAT_MATERIAL.addTrait(TinkerTantrumTraits.HOME_RUN);
         //CHEAT_MATERIAL.addTrait(TinkerTantrumTraits.ANTIMAGIC);
-        CHEAT_MATERIAL.addTrait(TinkerTantrumTraits.CHEESE_REAPER);
+        //CHEAT_MATERIAL.addTrait(TinkerTantrumTraits.CHEESE_REAPER);
+        CHEAT_MATERIAL.addTrait(TinkerTantrumTraits.ESSENCE_POWERED);
 
         TinkerRegistry.addMaterial(CHEAT_MATERIAL);
 
@@ -53,15 +55,17 @@ public class TinkerTantrumMaterials {
         DEVORITIUM.addStats(new HeadMaterialStats(154, 4.5f, 4.0f, HarvestLevels.IRON))
                 .addStats(new HandleMaterialStats(0.8f, 45))
                 .addStats(new ExtraMaterialStats(40))
-                .addTrait(TinkerTantrumTraits.ANTIMAGIC, MaterialTypes.HEAD)
+                .addTrait(TinkerTantrumTraits.ANTIMAGIC_2, MaterialTypes.HEAD)
                 .addTrait(TinkerTantrumTraits.ANTIMAGIC, MaterialTypes.HANDLE)
                 .addTrait(TinkerTantrumTraits.ANTIMAGIC, MaterialTypes.EXTRA);
+
+        DEVORITIUM.setRenderInfo(new MaterialRenderInfo.Metal(0x242424)); //, 0.5f, 0.25f, 0.0f
 
         if(conarmLoaded) {
             DEVORITIUM.addStats(new CoreMaterialStats(16, 15.0f))
                     .addStats(new PlatesMaterialStats(0.8f, 8, 1.0f))
                     .addStats(new TrimMaterialStats(8))
-                    .addTrait(TinkerTantrumArmorTraits.ANTIMAGIC, ArmorMaterialType.CORE)
+                    .addTrait(TinkerTantrumArmorTraits.ANTIMAGIC_2, ArmorMaterialType.CORE)
                     .addTrait(TinkerTantrumArmorTraits.ANTIMAGIC, ArmorMaterialType.PLATES)
                     .addTrait(TinkerTantrumArmorTraits.ANTIMAGIC, ArmorMaterialType.TRIM);
         }
@@ -79,6 +83,8 @@ public class TinkerTantrumMaterials {
                 .addStats(new HandleMaterialStats(0.6f, 125))
                 .addStats(new ExtraMaterialStats(90))
                 .addTrait(TinkerTantrumTraits.NIHILO, MaterialTypes.HEAD);
+
+        VOID_METAL.setRenderInfo(new MaterialRenderInfo.Metal(0x420641)); //, 0.35f, 0.3f, 0.0f
 
         if(conarmLoaded) {
             VOID_METAL.addStats(new CoreMaterialStats(9, 18.0f))

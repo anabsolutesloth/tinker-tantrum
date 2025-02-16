@@ -1,6 +1,9 @@
 package com.emperdog.tinkertantrum.trait.ancientspellcraft;
 
+import com.emperdog.tinkertantrum.IRequiresMods;
 import com.emperdog.tinkertantrum.Identifiers;
+import com.emperdog.tinkertantrum.helpers.AncientSpellcraftHelper;
+import com.google.common.collect.ImmutableList;
 import com.windanesz.ancientspellcraft.registry.ASPotions;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -9,21 +12,20 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-public class TraitAntimagic extends AbstractTrait {
+import java.util.List;
 
-    public TraitAntimagic() {
-        super(Identifiers.ANTIMAGIC, 0x0);
+public class TraitAntimagic extends AbstractTrait implements IRequiresMods {
+
+    public int level;
+
+    public TraitAntimagic(int level) {
+        super(Identifiers.ANTIMAGIC +"_"+ level, 0x0);
+        this.level = level;
     }
 
     @Override
     public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected) {
-        if(world.getTotalWorldTime() % 100 != 0
-                || !(entity instanceof EntityLivingBase))
-            return;
-
-        EntityLivingBase living = (EntityLivingBase) entity;
-
-        living.addPotionEffect(new PotionEffect(ASPotions.magical_exhaustion, 200, 2));
+        AncientSpellcraftHelper.antimagicTraitTick(world, entity, level);
     }
 
     @Override
@@ -31,11 +33,15 @@ public class TraitAntimagic extends AbstractTrait {
         if(wasHit) {
             int amp = 0;
             PotionEffect activeEffect = target.getActivePotionEffect(ASPotions.magical_exhaustion);
-            if(activeEffect != null) {
-                amp = activeEffect.getAmplifier();
-            }
+            if(activeEffect != null)
+                amp += activeEffect.getAmplifier();
 
-            target.addPotionEffect(new PotionEffect(ASPotions.magical_exhaustion, 200, amp < 3 ? amp + 1 : amp));
+            target.addPotionEffect(new PotionEffect(ASPotions.magical_exhaustion, 40 * level, Math.min(amp + level, 3)));
         }
+    }
+
+    @Override
+    public final List<String> getModsRequired() {
+        return ImmutableList.of("ancientspellcraft");
     }
 }

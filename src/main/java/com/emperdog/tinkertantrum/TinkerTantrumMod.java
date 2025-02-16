@@ -33,6 +33,8 @@ public class TinkerTantrumMod {
             TinkerTantrumConfig.loadSellables();
             MinecraftForge.EVENT_BUS.register(TinkerTantrumTraits.SELLOUT);
         }
+        if(Loader.isModLoaded("rats"))
+            MinecraftForge.EVENT_BUS.register(TinkerTantrumTraits.CHEESE_REAPER);
     }
 
     @Mod.EventHandler

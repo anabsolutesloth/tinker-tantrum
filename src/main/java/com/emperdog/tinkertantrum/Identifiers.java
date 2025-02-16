@@ -19,8 +19,14 @@ public class Identifiers {
     //Ancient Spellcraft
     public static final String ANTIMAGIC = "antimagic";
 
+    //Rats
+    public static final String CHEESE_REAPER = "cheese_reaper";
+
     //Thaumcraft
     public static final String MOD_REVEALING = "revealing";
+
+    //Mystical Agriculture
+    public static final String ESSENCE_POWERED = "essence_powered";
 
     public static class Material {
         public static final String CHEAT_MATERIAL = "cheat_material";

@@ -1,16 +1,20 @@
 package com.emperdog.tinkertantrum.trait.conarm.ftbmoney;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import com.emperdog.tinkertantrum.IRequiresMods;
 import com.emperdog.tinkertantrum.Identifiers;
 import com.emperdog.tinkertantrum.TinkerTantrumMod;
 import com.emperdog.tinkertantrum.trait.ftbmoney.TraitCapitalism;
 import com.feed_the_beast.mods.money.FTBMoney;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
-public class TraitCapitalismArmor extends AbstractArmorTrait {
+import java.util.List;
+
+public class TraitCapitalismArmor extends AbstractArmorTrait implements IRequiresMods {
 
     public static int[] taxes = {5, 25, 250, 2500};
     public static float[] damageReduction = {0.95f, 0.9f, 0.85f, 0.8f};
@@ -32,5 +36,10 @@ public class TraitCapitalismArmor extends AbstractArmorTrait {
             return newDamage * damageReduction[level];
         } else
             return newDamage;
+    }
+
+    @Override
+    public final List<String> getModsRequired() {
+        return ImmutableList.of("ftbmoney");
     }
 }

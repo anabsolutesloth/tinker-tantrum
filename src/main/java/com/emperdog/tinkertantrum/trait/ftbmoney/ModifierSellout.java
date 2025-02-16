@@ -1,7 +1,9 @@
 package com.emperdog.tinkertantrum.trait.ftbmoney;
 
+import com.emperdog.tinkertantrum.IRequiresMods;
 import com.emperdog.tinkertantrum.Identifiers;
 import com.feed_the_beast.mods.money.FTBMoney;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -22,15 +24,12 @@ import slimeknights.tconstruct.library.modifiers.ModifierTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.Objects.isNull;
 
 @Mod.EventBusSubscriber
-public class ModifierSellout extends ModifierTrait {
+public class ModifierSellout extends ModifierTrait implements IRequiresMods {
 
     public static final HashMap<String, Map<Integer, Long>> SELLABLE = new HashMap<>();
 
@@ -145,5 +144,10 @@ public class ModifierSellout extends ModifierTrait {
                 ? entry.get(stack.getMetadata())
                 : entry.get(OreDictionary.WILDCARD_VALUE))
                 * stack.getCount();
+    }
+
+    @Override
+    public final List<String> getModsRequired() {
+        return ImmutableList.of("ftbmoney");
     }
 }
