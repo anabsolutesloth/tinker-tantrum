@@ -65,4 +65,33 @@ dependencies {
     // implementation ('com.google.code.gson:gson:2.8.6') {
     //     transitive = false
     // }
+
+    //Mod Dependencies
+
+    //Hard Deps
+    implementation "curse.maven:tinkers-construct-74072:2902483"
+    implementation "curse.maven:mantle-74924:2713386"
+
+    //Environment util
+    implementation "mezz.jei:jei_1.12.2:4.16.1.1013"
+
+    //Integrated mods
+    implementation "vazkii.botania:Botania:r1.10-364.4"
+    implementation "com.azanor.baubles:Baubles:1.12-1.5.2"
+
+    implementation "curse.maven:ftb-money-forge-306283:3010526"
+    implementation "curse.maven:ftb-quests-forge-289412:3156637"
+    implementation "curse.maven:ftb-library-legacy-forge-237167:2985811"
+    implementation "curse.maven:item-filters-309674:3003364"
+
+    implementation "curse.maven:electroblobs-wizardry-265642:5354477"
+    implementation "curse.maven:ancient-spellcraft-358124:5413256"
+    implementation "curse.maven:wizardryutils-608287:5338903"
+
+    implementation "curse.maven:constructs-armory-287683:3174535"
+
+    implementation "curse.maven:rats-323596:3028671"
+    implementation rfg.deobf("curse.maven:llibrary-243298:2504999")
+
+    implementation "curse.maven:thaumcraft-223628:2629023"
 }

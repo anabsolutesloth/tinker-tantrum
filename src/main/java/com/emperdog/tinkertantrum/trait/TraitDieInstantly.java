@@ -21,7 +21,7 @@ public class TraitDieInstantly extends AbstractTrait {
     @Override
     public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
         if(!world.isRemote){
-            double random = world.rand.nextInt(Integer.MAX_VALUE);
+            int random = world.rand.nextInt(Integer.MAX_VALUE);
             //TinkerTantrumMod.LOGGER.info(random);
             if(random == Integer.MAX_VALUE - 1)
                 dieInstantly(player);
