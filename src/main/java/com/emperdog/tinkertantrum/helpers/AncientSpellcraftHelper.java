@@ -15,6 +15,8 @@ public class AncientSpellcraftHelper {
 
         EntityLivingBase living = (EntityLivingBase) entity;
 
-        living.addPotionEffect(new PotionEffect(ASPotions.magical_exhaustion, 200, 2 + level));
+        if(living.getActivePotionEffect(ASPotions.magical_exhaustion) == null
+                || living.getActivePotionEffect(ASPotions.magical_exhaustion).getAmplifier() < 1 + level)
+            living.addPotionEffect(new PotionEffect(ASPotions.magical_exhaustion, 200, 1 + level));
     }
 }

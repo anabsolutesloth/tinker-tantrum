@@ -44,13 +44,13 @@ public class TinkerTantrumMaterials {
         //CHEAT_MATERIAL.addTrait(TinkerTantrumTraits.SUPERCRITICAL);
         //CHEAT_MATERIAL.addTrait(TinkerTantrumTraits.HOME_RUN);
         //CHEAT_MATERIAL.addTrait(TinkerTantrumTraits.ANTIMAGIC);
-        //CHEAT_MATERIAL.addTrait(TinkerTantrumTraits.CHEESE_REAPER);
-        CHEAT_MATERIAL.addTrait(TinkerTantrumTraits.ESSENCE_POWERED);
+        CHEAT_MATERIAL.addTrait(TinkerTantrumTraits.CHEESE_REAPER);
+        //CHEAT_MATERIAL.addTrait(TinkerTantrumTraits.ESSENCE_POWERED);
 
         TinkerRegistry.addMaterial(CHEAT_MATERIAL);
 
         //Ancient Spellcraft
-        DEVORITIUM = new Material(Identifiers.Material.DEVORITIUM, 0x242424);
+        DEVORITIUM = new Material(Identifiers.Material.DEVORITIUM, 0x504752);
 
         DEVORITIUM.addStats(new HeadMaterialStats(154, 4.5f, 4.0f, HarvestLevels.IRON))
                 .addStats(new HandleMaterialStats(0.8f, 45))
@@ -59,7 +59,7 @@ public class TinkerTantrumMaterials {
                 .addTrait(TinkerTantrumTraits.ANTIMAGIC, MaterialTypes.HANDLE)
                 .addTrait(TinkerTantrumTraits.ANTIMAGIC, MaterialTypes.EXTRA);
 
-        DEVORITIUM.setRenderInfo(new MaterialRenderInfo.Metal(0x242424)); //, 0.5f, 0.25f, 0.0f
+        DEVORITIUM.setRenderInfo(new MaterialRenderInfo.Metal(0x504752, 0.4f, 0.1f, 0.0f));
 
         if(conarmLoaded) {
             DEVORITIUM.addStats(new CoreMaterialStats(16, 15.0f))
@@ -77,14 +77,14 @@ public class TinkerTantrumMaterials {
         }
 
         //Thaumcraft
-        VOID_METAL = new Material(Identifiers.Material.VOID_METAL, 0x420641);
+        VOID_METAL = new Material(Identifiers.Material.VOID_METAL, 0x1F0D34);
 
         VOID_METAL.addStats(new HeadMaterialStats(57, 4.5f, 5.0f, HarvestLevels.DIAMOND))
                 .addStats(new HandleMaterialStats(0.6f, 125))
                 .addStats(new ExtraMaterialStats(90))
                 .addTrait(TinkerTantrumTraits.NIHILO, MaterialTypes.HEAD);
 
-        VOID_METAL.setRenderInfo(new MaterialRenderInfo.Metal(0x420641)); //, 0.35f, 0.3f, 0.0f
+        VOID_METAL.setRenderInfo(new MaterialRenderInfo.Metal(0x1F0D34, 0.2f, 0.1f, 0.0f));
 
         if(conarmLoaded) {
             VOID_METAL.addStats(new CoreMaterialStats(9, 18.0f))
