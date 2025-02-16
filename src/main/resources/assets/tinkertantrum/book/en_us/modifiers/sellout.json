@@ -1,0 +1,17 @@
+{
+  "modifier": "sellout",
+  "text": [
+    {
+      "text": "Connecting your tool to the Global Market allows it to sell off any items harvested."
+    }
+  ],
+  "effects": [
+    "Sells any Sellable drops from Mobs or Blocks",
+    "Gives you Coins for any Sold drops"
+  ],
+  "demoTool": [
+    "tconstruct:broadsword",
+    "tconstruct:pickaxe",
+    "tconstruct:arrow"
+  ]
+}

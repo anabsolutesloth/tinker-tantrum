@@ -5,6 +5,7 @@ import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.materials.PlatesMaterialStats;
 import c4.conarm.lib.materials.TrimMaterialStats;
 import com.emperdog.tinkertantrum.trait.conarm.TinkerTantrumArmorTraits;
+import com.windanesz.ancientspellcraft.registry.ASItems;
 import net.minecraftforge.fml.common.Loader;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.client.MaterialRenderInfo;
@@ -72,8 +73,9 @@ public class TinkerTantrumMaterials {
 
         if(Loader.isModLoaded("ancientspellcraft")) {
             TinkerRegistry.addMaterial(DEVORITIUM);
+            DEVORITIUM.addItem(ASItems.devoritium_ingot);
             DEVORITIUM.addItem("ingotDevoritium", 1, Material.VALUE_Ingot);
-            DEVORITIUM.setRepresentativeItem("ingotDevoritium");
+            DEVORITIUM.setRepresentativeItem(ASItems.devoritium_ingot);
         }
 
         //Thaumcraft

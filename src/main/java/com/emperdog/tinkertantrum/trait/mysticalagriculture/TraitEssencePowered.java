@@ -1,9 +1,8 @@
 package com.emperdog.tinkertantrum.trait.mysticalagriculture;
 
 import com.blakebr0.mysticalagriculture.items.ItemCrafting;
-import com.emperdog.tinkertantrum.IRequiresMods;
+import com.emperdog.tinkertantrum.trait.IRequiresMods;
 import com.emperdog.tinkertantrum.Identifiers;
-import com.emperdog.tinkertantrum.TinkerTantrumMod;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.entity.EntityLivingBase;

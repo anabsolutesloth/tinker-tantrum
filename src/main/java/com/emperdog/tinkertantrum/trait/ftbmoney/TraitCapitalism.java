@@ -1,6 +1,6 @@
 package com.emperdog.tinkertantrum.trait.ftbmoney;
 
-import com.emperdog.tinkertantrum.IRequiresMods;
+import com.emperdog.tinkertantrum.trait.IRequiresMods;
 import com.emperdog.tinkertantrum.Identifiers;
 import com.feed_the_beast.mods.money.FTBMoney;
 import com.google.common.collect.ImmutableList;

@@ -1,0 +1,14 @@
+{
+  "armormodifier": "revealing_armor",
+  "text": [
+    {
+      "text": "Integrating Goggles of Revealing into your Helmet allows them to be worn as one."
+    }
+  ],
+  "effects": [
+    "Shows information only shown with Goggles of Revealing"
+  ],
+  "demoArmor": [
+    "conarm:helmet"
+  ]
+}

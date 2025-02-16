@@ -1,7 +1,7 @@
 package com.emperdog.tinkertantrum.mixin;
 
 import c4.conarm.common.items.armor.Helmet;
-import com.emperdog.tinkertantrum.TinkerTantrumTraits;
+import com.emperdog.tinkertantrum.trait.conarm.TinkerTantrumArmorTraits;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -25,6 +25,6 @@ public abstract class ConArmHelmetMixin extends Item implements IGoggles, IRevea
     }
 
     public boolean hasRevealing(ItemStack stack, EntityLivingBase wearer) {
-        return TinkerUtil.hasTrait(TagUtil.getTagSafe(stack), TinkerTantrumTraits.REVEALING.identifier);
+        return TinkerUtil.hasTrait(TagUtil.getTagSafe(stack), TinkerTantrumArmorTraits.REVEALING.identifier);
     }
 }

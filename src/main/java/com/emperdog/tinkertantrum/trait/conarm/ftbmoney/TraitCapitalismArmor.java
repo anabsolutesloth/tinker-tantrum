@@ -1,9 +1,8 @@
 package com.emperdog.tinkertantrum.trait.conarm.ftbmoney;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
-import com.emperdog.tinkertantrum.IRequiresMods;
+import com.emperdog.tinkertantrum.trait.IRequiresMods;
 import com.emperdog.tinkertantrum.Identifiers;
-import com.emperdog.tinkertantrum.TinkerTantrumMod;
 import com.emperdog.tinkertantrum.trait.ftbmoney.TraitCapitalism;
 import com.feed_the_beast.mods.money.FTBMoney;
 import com.google.common.collect.ImmutableList;

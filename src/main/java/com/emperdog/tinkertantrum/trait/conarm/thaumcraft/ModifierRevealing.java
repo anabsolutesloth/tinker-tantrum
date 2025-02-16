@@ -1,7 +1,7 @@
 package com.emperdog.tinkertantrum.trait.conarm.thaumcraft;
 
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
-import com.emperdog.tinkertantrum.IRequiresMods;
+import com.emperdog.tinkertantrum.trait.IRequiresMods;
 import com.emperdog.tinkertantrum.Identifiers;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.entity.EntityLiving;

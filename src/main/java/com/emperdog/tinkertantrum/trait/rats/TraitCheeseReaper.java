@@ -1,6 +1,6 @@
 package com.emperdog.tinkertantrum.trait.rats;
 
-import com.emperdog.tinkertantrum.IRequiresMods;
+import com.emperdog.tinkertantrum.trait.IRequiresMods;
 import com.emperdog.tinkertantrum.Identifiers;
 import com.github.alexthe666.rats.server.items.RatsItemRegistry;
 import com.google.common.collect.ImmutableList;

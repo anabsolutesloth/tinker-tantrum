@@ -1,4 +1,4 @@
-package com.emperdog.tinkertantrum;
+package com.emperdog.tinkertantrum.trait;
 
 import net.minecraftforge.fml.common.Loader;
 

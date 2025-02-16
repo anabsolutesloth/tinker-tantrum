@@ -1,6 +1,6 @@
 package com.emperdog.tinkertantrum.trait.ancientspellcraft;
 
-import com.emperdog.tinkertantrum.IRequiresMods;
+import com.emperdog.tinkertantrum.trait.IRequiresMods;
 import com.emperdog.tinkertantrum.Identifiers;
 import com.emperdog.tinkertantrum.helpers.AncientSpellcraftHelper;
 import com.google.common.collect.ImmutableList;
