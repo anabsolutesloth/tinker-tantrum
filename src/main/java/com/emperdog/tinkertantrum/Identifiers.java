@@ -25,6 +25,8 @@ public class Identifiers {
     //Thaumcraft
     public static final String MOD_REVEALING = "revealing";
 
+    public static final String WARPED = "warped";
+
     //Mystical Agriculture
     public static final String ESSENCE_POWERED = "essence_powered";
 

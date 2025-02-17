@@ -7,10 +7,12 @@ import com.emperdog.tinkertantrum.trait.ftbmoney.ModifierSellout;
 import com.emperdog.tinkertantrum.trait.ftbmoney.TraitCapitalism;
 import com.emperdog.tinkertantrum.trait.mysticalagriculture.TraitEssencePowered;
 import com.emperdog.tinkertantrum.trait.rats.TraitCheeseReaper;
+import com.emperdog.tinkertantrum.trait.thaumcraft.TraitWarped;
 import com.google.common.collect.ImmutableList;
 import net.minecraftforge.fml.common.Loader;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -49,6 +51,14 @@ public class TinkerTantrumTraits {
     public static final TraitEssencePowered ESSENCE_POWERED = new TraitEssencePowered();
 
 
+    //Thaumcraft
+    /**
+     * Storage of {@link TraitWarped} instances.
+     * Use {@link TraitWarped#getInstance(int)} to retrieve instances of this trait.
+     */
+    public static final HashMap<Integer, TraitWarped> WARPED = new HashMap<>();
+
+
     /**
      * List of All Tool Modifiers from Tinker Tantrum.
      * </p>
@@ -66,14 +76,14 @@ public class TinkerTantrumTraits {
     public static final List<IModifier> AVAILABLE_TOOL_MODIFIERS = filterAvailableModifiers(TOOL_MODIFIERS);
 
     /**
-     * List of All Modifiers from Tinker Tantrum
+     * List of All Tool and Armor Modifiers from Tinker Tantrum
      * </p>
      * May contain Modifiers built for Mods that may not be present!
      */
     public static final List<IModifier> ALL_MODIFIERS = Stream.concat(TOOL_MODIFIERS.parallelStream(), ARMOR_MODIFIERS.parallelStream()).collect(Collectors.toList());
 
     /**
-     * List of All "Available" Modifiers from Tinker Tantrum.
+     * List of All "Available" Tool and Armor Modifiers from Tinker Tantrum.
      * </p>
      * Modifiers are considered "Available" if they either do NOT Implement {@link IRequiresMods}, or do Implement it, and all required Mods are loaded.
      */

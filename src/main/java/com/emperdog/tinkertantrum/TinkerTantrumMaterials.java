@@ -6,6 +6,7 @@ import c4.conarm.lib.materials.PlatesMaterialStats;
 import c4.conarm.lib.materials.TrimMaterialStats;
 import com.emperdog.tinkertantrum.trait.IRequiresMods;
 import com.emperdog.tinkertantrum.trait.conarm.TinkerTantrumArmorTraits;
+import com.emperdog.tinkertantrum.trait.thaumcraft.TraitWarped;
 import com.windanesz.ancientspellcraft.registry.ASBlocks;
 import com.windanesz.ancientspellcraft.registry.ASItems;
 import net.minecraftforge.fml.common.Loader;
@@ -93,6 +94,7 @@ public class TinkerTantrumMaterials {
                 .addStats(new ExtraMaterialStats(90));
 
         addTraitIfAvailable(VOID_METAL, TinkerTantrumTraits.NIHILO, MaterialTypes.HEAD);
+        addTraitIfAvailable(VOID_METAL, TraitWarped.getInstance(1), MaterialTypes.HEAD);
 
         if(conarmLoaded) {
             VOID_METAL.addStats(new CoreMaterialStats(9, 18.0f))
@@ -101,6 +103,8 @@ public class TinkerTantrumMaterials {
 
             addTraitIfAvailable(VOID_METAL, TinkerTantrumTraits.NIHILO, ArmorMaterialType.CORE);
             addTraitIfAvailable(VOID_METAL, TinkerTantrumTraits.NIHILO, ArmorMaterialType.PLATES);
+            addTraitIfAvailable(VOID_METAL, TraitWarped.getInstance(1), ArmorMaterialType.CORE);
+            addTraitIfAvailable(VOID_METAL, TraitWarped.getInstance(1), ArmorMaterialType.PLATES);
         }
 
         if(Loader.isModLoaded("thaumcraft")) {
@@ -121,6 +125,7 @@ public class TinkerTantrumMaterials {
     }
 
     public static void addTraitIfAvailable(Material material, ITrait trait, String type) {
+        if(trait == null) return;
         if(!(trait instanceof IRequiresMods) || ((IRequiresMods) trait).isAvailable())
             material.addTrait(trait, type);
     }

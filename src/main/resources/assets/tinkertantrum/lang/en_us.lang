@@ -27,11 +27,14 @@ modifier.cheese_reaper.name=Grim Cheepear
 modifier.cheese_reaper.desc=§oCheesy Punchline§r\nMakes killed mobs also drop Cheese.
 
 modifier.nihilo.name=Ex Nihilo
-modifier.nihilo.desc=§oIt came from Nothing...§r\nThe tool will magically repair itself up to 50% of its maximum durability.
+modifier.nihilo.desc=§5§oIt came from Nothing...§r\nThe tool will magically repair itself up to 50% of its maximum durability.
 
 modifier.essence_powered.name=Essence-Infused
 modifier.essence_powered.desc=§oIt's Essential!§r\nConsumes tiered Essence from the Offhand to empower attacks. Stronger Essence has greater impact. Damage will be reduced without any Essence.
 
+modifier.warped.name=Warped %s
+modifier.warped.desc=§5§oYou have gained Permanent Warp!§r\nThis equipment has some level of Warp.
+modifier.warped.extra=§5Warping %s
 
 # Armor-Specific
 modifier.antimagic_1_armor.name=Anti-magic
