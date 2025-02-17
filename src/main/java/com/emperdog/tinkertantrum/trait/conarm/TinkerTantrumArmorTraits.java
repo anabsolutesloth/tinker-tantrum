@@ -1,6 +1,7 @@
 package com.emperdog.tinkertantrum.trait.conarm;
 
 import c4.conarm.lib.utils.RecipeMatchHolder;
+import com.emperdog.tinkertantrum.TinkerTantrumMod;
 import com.emperdog.tinkertantrum.TinkerTantrumTraits;
 import com.emperdog.tinkertantrum.trait.IRequiresMods;
 import com.emperdog.tinkertantrum.trait.conarm.ancientspellcraft.TraitAntimagicArmor;
@@ -45,6 +46,11 @@ public class TinkerTantrumArmorTraits {
     public static final List<IModifier> AVAILABLE_ARMOR_MODIFIERS = TinkerTantrumTraits.filterAvailableModifiers(ARMOR_MODIFIERS);
 
     public static void initModifierRecipes() {
+        if(!Loader.isModLoaded("conarm")) {
+            TinkerTantrumMod.LOGGER.info("conarm is not loaded, skipping loading Armor Modifier recipes.");
+            return;
+        }
+
         if (Loader.isModLoaded("thaumcraft"))
             //REVEALING.addItem(ItemsTC.goggles);
             RecipeMatchHolder.addItem(REVEALING, ItemsTC.goggles);

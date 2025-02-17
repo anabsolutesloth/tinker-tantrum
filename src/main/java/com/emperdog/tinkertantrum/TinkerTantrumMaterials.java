@@ -4,12 +4,16 @@ import c4.conarm.lib.materials.ArmorMaterialType;
 import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.materials.PlatesMaterialStats;
 import c4.conarm.lib.materials.TrimMaterialStats;
+import com.emperdog.tinkertantrum.trait.IRequiresMods;
 import com.emperdog.tinkertantrum.trait.conarm.TinkerTantrumArmorTraits;
+import com.windanesz.ancientspellcraft.registry.ASBlocks;
 import com.windanesz.ancientspellcraft.registry.ASItems;
 import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.oredict.OreDictionary;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.client.MaterialRenderInfo;
 import slimeknights.tconstruct.library.materials.*;
+import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.HarvestLevels;
 
 public class TinkerTantrumMaterials {
@@ -20,7 +24,7 @@ public class TinkerTantrumMaterials {
     public static Material DEVORITIUM;
     public static Material VOID_METAL;
 
-    public static void init() {
+    public static void preInit() {
 
         //TODO: remove or rework CHEAT_MATERIAL
         CHEAT_MATERIAL = new Material(Identifiers.Material.CHEAT_MATERIAL, 0x00FF00);
@@ -53,47 +57,50 @@ public class TinkerTantrumMaterials {
         //Ancient Spellcraft
         DEVORITIUM = new Material(Identifiers.Material.DEVORITIUM, 0x504752);
 
+        DEVORITIUM.setRenderInfo(new MaterialRenderInfo.Metal(0x504752, 0.6f, 0.2f, 0.0f));
+
         DEVORITIUM.addStats(new HeadMaterialStats(154, 4.5f, 4.0f, HarvestLevels.IRON))
                 .addStats(new HandleMaterialStats(0.8f, 45))
-                .addStats(new ExtraMaterialStats(40))
-                .addTrait(TinkerTantrumTraits.ANTIMAGIC_2, MaterialTypes.HEAD)
-                .addTrait(TinkerTantrumTraits.ANTIMAGIC, MaterialTypes.HANDLE)
-                .addTrait(TinkerTantrumTraits.ANTIMAGIC, MaterialTypes.EXTRA);
+                .addStats(new ExtraMaterialStats(40));
 
-        DEVORITIUM.setRenderInfo(new MaterialRenderInfo.Metal(0x504752, 0.4f, 0.1f, 0.0f));
+        addTraitIfAvailable(DEVORITIUM, TinkerTantrumTraits.ANTIMAGIC_2, MaterialTypes.HEAD);
+        addTraitIfAvailable(DEVORITIUM, TinkerTantrumTraits.ANTIMAGIC, MaterialTypes.HANDLE);
+        addTraitIfAvailable(DEVORITIUM, TinkerTantrumTraits.ANTIMAGIC, MaterialTypes.EXTRA);
 
         if(conarmLoaded) {
             DEVORITIUM.addStats(new CoreMaterialStats(16, 15.0f))
                     .addStats(new PlatesMaterialStats(0.8f, 8, 1.0f))
-                    .addStats(new TrimMaterialStats(8))
-                    .addTrait(TinkerTantrumArmorTraits.ANTIMAGIC_2, ArmorMaterialType.CORE)
-                    .addTrait(TinkerTantrumArmorTraits.ANTIMAGIC, ArmorMaterialType.PLATES)
-                    .addTrait(TinkerTantrumArmorTraits.ANTIMAGIC, ArmorMaterialType.TRIM);
+                    .addStats(new TrimMaterialStats(8));
+
+            addTraitIfAvailable(DEVORITIUM, TinkerTantrumArmorTraits.ANTIMAGIC_2, ArmorMaterialType.CORE);
+            addTraitIfAvailable(DEVORITIUM, TinkerTantrumArmorTraits.ANTIMAGIC, ArmorMaterialType.PLATES);
+            addTraitIfAvailable(DEVORITIUM, TinkerTantrumArmorTraits.ANTIMAGIC, ArmorMaterialType.TRIM);
         }
 
         if(Loader.isModLoaded("ancientspellcraft")) {
             TinkerRegistry.addMaterial(DEVORITIUM);
-            DEVORITIUM.addItem(ASItems.devoritium_ingot);
             DEVORITIUM.addItem("ingotDevoritium", 1, Material.VALUE_Ingot);
-            DEVORITIUM.setRepresentativeItem(ASItems.devoritium_ingot);
+            DEVORITIUM.setRepresentativeItem("ingotDevoritium");
         }
 
         //Thaumcraft
         VOID_METAL = new Material(Identifiers.Material.VOID_METAL, 0x1F0D34);
 
+        VOID_METAL.setRenderInfo(new MaterialRenderInfo.Metal(0x1F0D34, 0.2f, 0.1f, 0.0f));
+
         VOID_METAL.addStats(new HeadMaterialStats(57, 4.5f, 5.0f, HarvestLevels.DIAMOND))
                 .addStats(new HandleMaterialStats(0.6f, 125))
-                .addStats(new ExtraMaterialStats(90))
-                .addTrait(TinkerTantrumTraits.NIHILO, MaterialTypes.HEAD);
+                .addStats(new ExtraMaterialStats(90));
 
-        VOID_METAL.setRenderInfo(new MaterialRenderInfo.Metal(0x1F0D34, 0.2f, 0.1f, 0.0f));
+        addTraitIfAvailable(VOID_METAL, TinkerTantrumTraits.NIHILO, MaterialTypes.HEAD);
 
         if(conarmLoaded) {
             VOID_METAL.addStats(new CoreMaterialStats(9, 18.0f))
                     .addStats(new PlatesMaterialStats(1.5f, 7, 0.8f))
-                    .addStats(new TrimMaterialStats(14))
-                    .addTrait(TinkerTantrumTraits.NIHILO, ArmorMaterialType.CORE)
-                    .addTrait(TinkerTantrumTraits.NIHILO, ArmorMaterialType.PLATES);
+                    .addStats(new TrimMaterialStats(14));
+
+            addTraitIfAvailable(VOID_METAL, TinkerTantrumTraits.NIHILO, ArmorMaterialType.CORE);
+            addTraitIfAvailable(VOID_METAL, TinkerTantrumTraits.NIHILO, ArmorMaterialType.PLATES);
         }
 
         if(Loader.isModLoaded("thaumcraft")) {
@@ -101,5 +108,20 @@ public class TinkerTantrumMaterials {
             VOID_METAL.addItem("ingotVoid", 1, Material.VALUE_Ingot);
             VOID_METAL.setRepresentativeItem("ingotVoid");
         }
+    }
+
+    public static void init() {
+
+        if(Loader.isModLoaded("ancientspellcraft")) {
+            OreDictionary.registerOre("ingotDevoritium", ASItems.devoritium_ingot);
+            OreDictionary.registerOre("nuggetDevoritium", ASItems.devoritium_nugget);
+            OreDictionary.registerOre("blockDevoritium", ASBlocks.DEVORITIUM_BLOCK);
+            OreDictionary.registerOre("oreDevoritium", ASBlocks.DEVORITIUM_ORE);
+        }
+    }
+
+    public static void addTraitIfAvailable(Material material, ITrait trait, String type) {
+        if(!(trait instanceof IRequiresMods) || ((IRequiresMods) trait).isAvailable())
+            material.addTrait(trait, type);
     }
 }

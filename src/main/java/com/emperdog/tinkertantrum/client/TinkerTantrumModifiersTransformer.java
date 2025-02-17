@@ -1,7 +1,6 @@
 package com.emperdog.tinkertantrum.client;
 
 import c4.conarm.lib.utils.RecipeMatchHolder;
-import com.emperdog.tinkertantrum.TinkerTantrumMod;
 import slimeknights.mantle.client.book.data.BookData;
 import slimeknights.mantle.client.book.data.PageData;
 import slimeknights.mantle.client.book.data.SectionData;
