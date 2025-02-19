@@ -12,14 +12,13 @@ import com.windanesz.ancientspellcraft.registry.ASItems;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
 import slimeknights.tconstruct.library.TinkerRegistry;
-import slimeknights.tconstruct.library.client.MaterialRenderInfo;
 import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.HarvestLevels;
 
-public class TinkerTantrumMaterials {
+import static com.emperdog.tinkertantrum.TinkerTantrumMod.conarmLoaded;
 
-    public static boolean conarmLoaded = Loader.isModLoaded("conarm");
+public class TinkerTantrumMaterials {
 
     public static Material CHEAT_MATERIAL;
     public static Material DEVORITIUM;
@@ -41,7 +40,7 @@ public class TinkerTantrumMaterials {
                     .addStats(new PlatesMaterialStats(1.5f, 100, 2.5f))
                     .addStats(new TrimMaterialStats(100));
             //CHEAT_MATERIAL.addTrait(TinkerTantrumArmorTraits.ANTIMAGIC, ArmorMaterialType.CORE);
-            CHEAT_MATERIAL.addTrait(TinkerTantrumArmorTraits.CAPITALISM, ArmorMaterialType.CORE);
+            //CHEAT_MATERIAL.addTrait(TinkerTantrumArmorTraits.CAPITALISM, ArmorMaterialType.CORE);
         }
 
         //CHEAT_MATERIAL.addTrait(TinkerTantrumTraits.QUARKY);
@@ -57,8 +56,6 @@ public class TinkerTantrumMaterials {
 
         //Ancient Spellcraft
         DEVORITIUM = new Material(Identifiers.Material.DEVORITIUM, 0x504752);
-
-        DEVORITIUM.setRenderInfo(new MaterialRenderInfo.Metal(0x504752, 0.6f, 0.2f, 0.0f));
 
         DEVORITIUM.addStats(new HeadMaterialStats(154, 4.5f, 4.0f, HarvestLevels.IRON))
                 .addStats(new HandleMaterialStats(0.8f, 45))
@@ -86,8 +83,6 @@ public class TinkerTantrumMaterials {
 
         //Thaumcraft
         VOID_METAL = new Material(Identifiers.Material.VOID_METAL, 0x1F0D34);
-
-        VOID_METAL.setRenderInfo(new MaterialRenderInfo.Metal(0x1F0D34, 0.2f, 0.1f, 0.0f));
 
         VOID_METAL.addStats(new HeadMaterialStats(57, 4.5f, 5.0f, HarvestLevels.DIAMOND))
                 .addStats(new HandleMaterialStats(0.6f, 125))

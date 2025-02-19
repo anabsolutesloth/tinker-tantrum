@@ -74,6 +74,7 @@ dependencies {
 
     //Environment util
     implementation "mezz.jei:jei_1.12.2:4.16.1.1013"
+    runtimeOnly "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.20.703"
 
     //Integrated mods
     implementation "vazkii.botania:Botania:r1.10-364.4"
@@ -91,7 +92,7 @@ dependencies {
     implementation "curse.maven:constructs-armory-287683:3174535"
 
     implementation "curse.maven:rats-323596:3028671"
-    implementation rfg.deobf("curse.maven:llibrary-243298:2504999")
+    implementation "curse.maven:llibrary-243298:2504999"
 
     implementation "curse.maven:thaumcraft-223628:2629023"
 

@@ -3,17 +3,19 @@ package com.emperdog.tinkertantrum;
 import com.emperdog.tinkertantrum.trait.*;
 import com.emperdog.tinkertantrum.trait.ancientspellcraft.TraitAntimagic;
 import com.emperdog.tinkertantrum.trait.conarm.TinkerTantrumArmorTraits;
+import com.emperdog.tinkertantrum.trait.conarm.ebwizardry.ModifierElementalWizardry;
 import com.emperdog.tinkertantrum.trait.ftbmoney.ModifierSellout;
 import com.emperdog.tinkertantrum.trait.ftbmoney.TraitCapitalism;
 import com.emperdog.tinkertantrum.trait.mysticalagriculture.TraitEssencePowered;
 import com.emperdog.tinkertantrum.trait.rats.TraitCheeseReaper;
 import com.emperdog.tinkertantrum.trait.thaumcraft.TraitWarped;
-import com.google.common.collect.ImmutableList;
 import net.minecraftforge.fml.common.Loader;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -56,7 +58,8 @@ public class TinkerTantrumTraits {
      * Storage of {@link TraitWarped} instances.
      * Use {@link TraitWarped#getInstance(int)} to retrieve instances of this trait.
      */
-    public static final HashMap<Integer, TraitWarped> WARPED = new HashMap<>();
+    public static final Map<Integer, TraitWarped> WARPED = new HashMap<>();
+
 
 
     /**
@@ -64,30 +67,39 @@ public class TinkerTantrumTraits {
      * </p>
      * May contain Modifiers built for Mods that may not be present!
      */
-    public static final List<IModifier> TOOL_MODIFIERS = ImmutableList.of(
-            SELLOUT
-    );
+    public static final List<IModifier> TOOL_MODIFIERS = new ArrayList<>();
 
     /**
      * List of All "Available" Tool Modifiers from Tinker Tantrum.
      * </p>
      * Modifiers are considered "Available" if they either do NOT Implement {@link IRequiresMods}, or do Implement it, and all required Mods are loaded.
      */
-    public static final List<IModifier> AVAILABLE_TOOL_MODIFIERS = filterAvailableModifiers(TOOL_MODIFIERS);
+    public static final List<IModifier> AVAILABLE_TOOL_MODIFIERS;
 
     /**
      * List of All Tool and Armor Modifiers from Tinker Tantrum
      * </p>
      * May contain Modifiers built for Mods that may not be present!
      */
-    public static final List<IModifier> ALL_MODIFIERS = Stream.concat(TOOL_MODIFIERS.parallelStream(), ARMOR_MODIFIERS.parallelStream()).collect(Collectors.toList());
+    public static final List<IModifier> ALL_MODIFIERS;
 
     /**
      * List of All "Available" Tool and Armor Modifiers from Tinker Tantrum.
      * </p>
      * Modifiers are considered "Available" if they either do NOT Implement {@link IRequiresMods}, or do Implement it, and all required Mods are loaded.
      */
-    public static final List<IModifier> ALL_AVAILABLE_MODIFIERS = filterAvailableModifiers(ALL_MODIFIERS);
+    public static final List<IModifier> ALL_AVAILABLE_MODIFIERS;
+
+
+    static {
+        TOOL_MODIFIERS.add(SELLOUT);
+
+
+        AVAILABLE_TOOL_MODIFIERS = filterAvailableModifiers(TOOL_MODIFIERS);
+
+        ALL_MODIFIERS = Stream.concat(TOOL_MODIFIERS.parallelStream(), ARMOR_MODIFIERS.parallelStream()).collect(Collectors.toList());
+        ALL_AVAILABLE_MODIFIERS = filterAvailableModifiers(ALL_MODIFIERS);
+    }
 
 
     /**

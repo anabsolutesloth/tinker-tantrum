@@ -36,17 +36,29 @@ modifier.warped.name=Warped %s
 modifier.warped.desc=§5§oYou have gained Permanent Warp!§r\nThis equipment has some level of Warp.
 modifier.warped.extra=§5Warping %s
 
+
 # Armor-Specific
 modifier.antimagic_1_armor.name=Anti-magic
-modifier.antimagic_1_armor.desc=§oHeresy!§r\nGrants great protection (30%) from Magical attacks, but makes your Spells less potent.
+modifier.antimagic_1_armor.desc=§oHeresy!§r\nGrants great protection (20%) from Magical attacks, but makes your Spells less potent.
 modifier.antimagic_2_armor.name=Anti-magic II
-modifier.antimagic_2_armor.desc=§oHeresy!§r\nGrants excellent protection (60%) from Magical attacks, but makes your Spells less potent.
+modifier.antimagic_2_armor.desc=§oHeresy!§r\nGrants excellent protection (40%) from Magical attacks, but makes your Spells less potent.
 
 modifier.capitalism_armor.name=Capitalism
 modifier.capitalism_armor.desc=§oONE MILLION DOLLARS§r\nReduces damage taken, but drains your Money. Effects are stronger when you have more Money.
 
 modifier.revealing_armor.name=Revealing
 modifier.revealing_armor.desc=§oShow me your true form!§r\nActs as Goggles of Revealing.
+
+modifier.wizardry_magic_armor.name=Wizardry
+modifier.wizardry_fire_armor.name=Blazing Wizardry
+modifier.wizardry_ice_armor.name=Freezing Wizardry
+modifier.wizardry_lightning_armor.name=Thunderous Wizardry
+modifier.wizardry_necromancy_armor.name=Undying Wizardry
+modifier.wizardry_earth_armor.name=Gaean Wizardry
+modifier.wizardry_sorcery_armor.name=Mystical Wizardry
+modifier.wizardry_healing_armor.name=Curing Wizardry
+modifier.wizardry_armor.desc=§oYou're a Wizard, Barry!§r\nReduces the cost of Spells of the %s Element.
+modifier.wizardry_armor.extra=%s Cost: -%s%%
 
 
 # Materials

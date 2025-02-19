@@ -30,6 +30,9 @@ public class Identifiers {
     //Mystical Agriculture
     public static final String ESSENCE_POWERED = "essence_powered";
 
+    //EBWizardry
+    public static final String WIZARDRY = "wizardry";
+
     public static class Material {
         public static final String CHEAT_MATERIAL = "cheat_material";
 

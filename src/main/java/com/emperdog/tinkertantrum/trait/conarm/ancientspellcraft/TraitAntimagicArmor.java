@@ -33,7 +33,7 @@ public class TraitAntimagicArmor extends AbstractArmorTrait implements IRequires
     public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt) {
         //TinkerTantrumMod.LOGGER.info("isMagicDamage(): {}, instanceof IElementalDamage: {}", source.isMagicDamage(), source instanceof IElementalDamage);
         return source.isMagicDamage() || source instanceof IElementalDamage
-                ? newDamage * (0.3f * level)
+                ? newDamage * (0.2f * level)
                 : newDamage;
     }
 

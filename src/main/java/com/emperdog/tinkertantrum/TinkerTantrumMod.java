@@ -1,6 +1,7 @@
 package com.emperdog.tinkertantrum;
 
 import com.emperdog.tinkertantrum.proxy.CommonProxy;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -16,6 +17,8 @@ public class TinkerTantrumMod {
 
     @SidedProxy(clientSide = "com.emperdog.tinkertantrum.proxy.ClientProxy", serverSide = "com.emperdog.tinkertantrum.proxy.CommonProxy")
     public static CommonProxy PROXY;
+
+    public static boolean conarmLoaded = Loader.isModLoaded("conarm");
 
     /**
      * <a href="https://cleanroommc.com/wiki/forge-mod-development/event#overview">

@@ -1,0 +1,19 @@
+{
+  "armormodifier": "wizardry_magic_armor",
+  "text": [
+    {
+      "text": "Socketing an Elemental Crystal into your Armor allows it to help channel Magic more effectively."
+    }
+  ],
+  "effects": [
+    "Reduces of the cost of Spells matching the crystal's Element",
+    "Exists for every Element",
+    "Can only be applied once."
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}
