@@ -1,9 +1,9 @@
 package com.emperdog.tinkertantrum.proxy;
 
-import com.emperdog.tinkertantrum.TinkerTantrumConfig;
 import com.emperdog.tinkertantrum.TinkerTantrumMaterials;
 import com.emperdog.tinkertantrum.TinkerTantrumTraits;
 import com.emperdog.tinkertantrum.helpers.EBWizardryHelper;
+import com.emperdog.tinkertantrum.helpers.FTBMoneyHelper;
 import com.emperdog.tinkertantrum.trait.conarm.TinkerTantrumArmorTraits;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
@@ -25,8 +25,8 @@ public class CommonProxy {
         TinkerTantrumMaterials.init();
         //LOGGER.info("is FTB Money loaded? {}", Loader.isModLoaded("ftbmoney"));
         if(Loader.isModLoaded("ftbmoney")) {
-            TinkerTantrumConfig.loadSellables();
-            MinecraftForge.EVENT_BUS.register(TinkerTantrumTraits.SELLOUT);
+            FTBMoneyHelper.loadSellables();
+            MinecraftForge.EVENT_BUS.register(FTBMoneyHelper.INSTANCE);
         }
 
         if(Loader.isModLoaded("rats"))

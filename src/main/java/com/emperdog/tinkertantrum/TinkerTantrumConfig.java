@@ -1,15 +1,12 @@
 package com.emperdog.tinkertantrum;
 
-import com.emperdog.tinkertantrum.trait.ftbmoney.ModifierSellout;
+import com.emperdog.tinkertantrum.helpers.FTBMoneyHelper;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.oredict.OreDictionary;
-
-import java.util.HashMap;
 
 @Config(modid = Tags.MOD_ID)
 public class TinkerTantrumConfig extends Configuration {
@@ -66,36 +63,6 @@ public class TinkerTantrumConfig extends Configuration {
 
     public static void syncConfig() {
         TinkerTantrumMod.LOGGER.info("Reloading tinkertantrum config values!");
-        ModifierSellout.SELLABLE.clear();
-        loadSellables();
-    }
-
-
-    public static void loadSellables() {
-        //Sellables
-        TinkerTantrumMod.LOGGER.info("Loading Sellable items for ModifierSellout");
-        for (String entry : sellables) {
-            String[] entryDetails = entry.split(";");
-            String[] itemAndMeta = entryDetails[0].split("@");
-            String item = itemAndMeta[0];
-            int meta = itemAndMeta.length == 2 ? Short.parseShort(itemAndMeta[1]) : OreDictionary.WILDCARD_VALUE;
-            long value = Long.parseLong(entryDetails[1]);
-
-            /*
-            if ((!ForgeRegistries.ITEMS.containsValue(item)
-                    || !ForgeRegistries.BLOCKS.containsValue(Block.getBlockFromItem(item)))
-                    && (isNull(Item.getByNameOrId(entryDetails[0]))
-                    || isNull(Block.getBlockFromName(entryDetails[0])))) {
-                TinkerTantrumMod.LOGGER.warn("Item '{}' may not exist!", entryDetails[0]);
-            }
-             //*/
-            //TinkerTantrumMod.LOGGER.info("item: {}, meta: {}, value: {}", item, meta, value);
-            if(!ModifierSellout.SELLABLE.containsKey(item)) {
-                HashMap<Integer, Long> map = new HashMap<>();
-                map.put(meta, value);
-                ModifierSellout.SELLABLE.put(item, map);
-            } else
-                ModifierSellout.SELLABLE.get(item).put(meta, value);
-        }
+        FTBMoneyHelper.reloadSellables();
     }
 }
