@@ -2,6 +2,7 @@ package com.emperdog.tinkertantrum.proxy;
 
 import com.emperdog.tinkertantrum.TinkerTantrumMaterials;
 import com.emperdog.tinkertantrum.TinkerTantrumTraits;
+import com.emperdog.tinkertantrum.helpers.AncientSpellcraftHelper;
 import com.emperdog.tinkertantrum.helpers.EBWizardryHelper;
 import com.emperdog.tinkertantrum.helpers.FTBMoneyHelper;
 import com.emperdog.tinkertantrum.trait.conarm.TinkerTantrumArmorTraits;
@@ -34,6 +35,9 @@ public class CommonProxy {
 
         if(Loader.isModLoaded("ebwizardry") && conarmLoaded)
             MinecraftForge.EVENT_BUS.register(EBWizardryHelper.INSTANCE);
+
+        if(Loader.isModLoaded("ancientspellcraft") && conarmLoaded)
+            MinecraftForge.EVENT_BUS.register(AncientSpellcraftHelper.INSTANCE);
     }
 
     public void postInit(FMLPostInitializationEvent event) {

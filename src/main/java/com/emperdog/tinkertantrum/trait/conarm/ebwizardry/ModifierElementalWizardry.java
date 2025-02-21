@@ -3,7 +3,6 @@ package com.emperdog.tinkertantrum.trait.conarm.ebwizardry;
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
 import com.emperdog.tinkertantrum.Identifiers;
 import com.emperdog.tinkertantrum.TinkerTantrumConfig;
-import com.emperdog.tinkertantrum.TinkerTantrumMod;
 import com.emperdog.tinkertantrum.trait.IBookHideable;
 import com.emperdog.tinkertantrum.trait.IRequiresMods;
 import com.google.common.collect.ImmutableList;
@@ -23,12 +22,12 @@ import java.util.List;
 
 public class ModifierElementalWizardry extends ArmorModifierTrait implements IRequiresMods, IBookHideable {
 
-    public static final float costReduction = TinkerTantrumConfig.elementalWizardryCostReduction;
+    public static final float costReduction = TinkerTantrumConfig.ebwizardry.wizardryCostReduction;
 
     public Element element;
 
     public ModifierElementalWizardry(Element element) {
-        super(Identifiers.WIZARDRY +"_"+ element, GuiUtils.getColorCode(element.getColour().color.formattingCode, true));
+        super(Identifiers.MOD_WIZARDRY +"_"+ element, GuiUtils.getColorCode(element.getColour().color.formattingCode, true));
         this.element = element;
     }
 
@@ -36,7 +35,7 @@ public class ModifierElementalWizardry extends ArmorModifierTrait implements IRe
     public List<String> getExtraInfo(ItemStack tool, NBTTagCompound modifierTag) {
         List<String> info = new ArrayList<>();
 
-        info.add(Util.translateFormatted(String.format("modifier.%s_armor.extra", Identifiers.WIZARDRY), element.getDisplayName(), (int) (costReduction * 100)));
+        info.add(Util.translateFormatted(String.format("modifier.%s_armor.extra", Identifiers.MOD_WIZARDRY), element.getDisplayName(), (int) (costReduction * 100)));
         return info;
     }
 
@@ -47,12 +46,12 @@ public class ModifierElementalWizardry extends ArmorModifierTrait implements IRe
 
     @Override
     public boolean canApplyCustom(ItemStack stack) {
-        return super.canApplyCustom(stack) && !(element == Element.MAGIC && !TinkerTantrumConfig.enableNoneMagicWizardry);
+        return super.canApplyCustom(stack) && !(element == Element.MAGIC && !TinkerTantrumConfig.ebwizardry.enableNoneMagicWizardry);
     }
 
     @Override
     public String getLocalizedDesc() {
-        return String.format(Util.translate("modifier.%s_armor.desc", Identifiers.WIZARDRY), element.getDisplayName());
+        return String.format(Util.translate("modifier.%s_armor.desc", Identifiers.MOD_WIZARDRY), element.getDisplayName());
     }
 
     @Override

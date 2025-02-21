@@ -1,0 +1,13 @@
+{
+  "textures": {
+    "revealing_armor": "models/modifiers/mod_revealing_armor",
+    "wizardry_armor": "models/modifier/mod_wizardry_armor_base",
+    "wizardry_fire_armor": "models/modifier/mod_wizardry_armor_base",
+    "wizardry_ice_armor": "models/modifier/mod_wizardry_armor_base",
+    "wizardry_lightning_armor": "models/modifier/mod_wizardry_armor_base",
+    "wizardry_earth_armor": "models/modifier/mod_wizardry_armor_base",
+    "wizardry_necromancy_armor": "models/modifier/mod_wizardry_armor_base",
+    "wizardry_sorcery_armor": "models/modifier/mod_wizardry_armor_base",
+    "wizardry_healing_armor": "models/modifier/mod_wizardry_armor_base"
+  }
+}

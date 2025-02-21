@@ -27,7 +27,7 @@ public class TinkerTantrumMaterials {
     public static void preInit() {
 
         //TODO: remove or rework CHEAT_MATERIAL
-        CHEAT_MATERIAL = new Material(Identifiers.Material.CHEAT_MATERIAL, 0x00FF00);
+        CHEAT_MATERIAL = new Material(Identifiers.MAT_CHEAT_MATERIAL, 0x00FF00);
 
         CHEAT_MATERIAL.addStats(new HeadMaterialStats(100, 5.0f, 5.0f, 1))
                 .addStats(new HandleMaterialStats(1.0f, 100))
@@ -55,11 +55,11 @@ public class TinkerTantrumMaterials {
         TinkerRegistry.addMaterial(CHEAT_MATERIAL);
 
         //Ancient Spellcraft
-        DEVORITIUM = new Material(Identifiers.Material.DEVORITIUM, 0x504752);
+        DEVORITIUM = new Material(Identifiers.MAT_DEVORITIUM, 0x504752);
 
         DEVORITIUM.addStats(new HeadMaterialStats(154, 4.5f, 4.0f, HarvestLevels.IRON))
                 .addStats(new HandleMaterialStats(0.8f, 45))
-                .addStats(new ExtraMaterialStats(40));
+                .addStats(new ExtraMaterialStats(30));
 
         addTraitIfAvailable(DEVORITIUM, TinkerTantrumTraits.ANTIMAGIC_2, MaterialTypes.HEAD);
         addTraitIfAvailable(DEVORITIUM, TinkerTantrumTraits.ANTIMAGIC, MaterialTypes.HANDLE);
@@ -67,8 +67,8 @@ public class TinkerTantrumMaterials {
 
         if(conarmLoaded) {
             DEVORITIUM.addStats(new CoreMaterialStats(16, 15.0f))
-                    .addStats(new PlatesMaterialStats(0.8f, 8, 1.0f))
-                    .addStats(new TrimMaterialStats(8));
+                    .addStats(new PlatesMaterialStats(0.8f, 4, 1.0f))
+                    .addStats(new TrimMaterialStats(2));
 
             addTraitIfAvailable(DEVORITIUM, TinkerTantrumArmorTraits.ANTIMAGIC_2, ArmorMaterialType.CORE);
             addTraitIfAvailable(DEVORITIUM, TinkerTantrumArmorTraits.ANTIMAGIC, ArmorMaterialType.PLATES);
@@ -82,7 +82,7 @@ public class TinkerTantrumMaterials {
         }
 
         //Thaumcraft
-        VOID_METAL = new Material(Identifiers.Material.VOID_METAL, 0x1F0D34);
+        VOID_METAL = new Material(Identifiers.MAT_VOID_METAL, 0x1F0D34);
 
         VOID_METAL.addStats(new HeadMaterialStats(57, 4.5f, 5.0f, HarvestLevels.DIAMOND))
                 .addStats(new HandleMaterialStats(0.6f, 125))

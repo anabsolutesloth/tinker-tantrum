@@ -3,7 +3,6 @@ package com.emperdog.tinkertantrum;
 import com.emperdog.tinkertantrum.trait.*;
 import com.emperdog.tinkertantrum.trait.ancientspellcraft.TraitAntimagic;
 import com.emperdog.tinkertantrum.trait.conarm.TinkerTantrumArmorTraits;
-import com.emperdog.tinkertantrum.trait.conarm.ebwizardry.ModifierElementalWizardry;
 import com.emperdog.tinkertantrum.trait.ftbmoney.ModifierSellout;
 import com.emperdog.tinkertantrum.trait.ftbmoney.TraitCapitalism;
 import com.emperdog.tinkertantrum.trait.mysticalagriculture.TraitEssencePowered;
@@ -108,7 +107,7 @@ public class TinkerTantrumTraits {
      * Use {@link #ALL_AVAILABLE_MODIFIERS} unless you need to rebuild the list.
      * </p>
      * Ex: {@link TinkerTantrumArmorTraits#REVEALING} is not included in this list if Construct's Armory and Thaumcraft are not present
-     * @return a List of All Modifiers in Tinker Tantrum whose Required Mods are loaded.
+     * @return a List of Modifiers, filtered to those whose Required Mods are loaded.
      */
     public static List<IModifier> filterAvailableModifiers(List<IModifier> modifiers) {
         return modifiers.stream()

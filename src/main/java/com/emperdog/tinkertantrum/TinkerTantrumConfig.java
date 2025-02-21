@@ -23,36 +23,71 @@ public class TinkerTantrumConfig extends Configuration {
     public static float supercriticalChargePerHit = 0.05f;
     @Config.Comment({
             "Maximum amount of bonus Charge added per hit for the Supercritical trait.",
-            "Actual charge is this value divided by 100.",
+            "Actual charge added is this value divided by 100.",
             "default: [5]"
     })
     public static int supercriticalMaxBonusCharge = 5;
 
-    @Config.Comment({
-            "Mapping of Items that can be sold by the Sellout Trait, and their values",
-            "Format is 'itemname@meta;value', ex: 'minecraft:diamond@0;5'. meta value is optional and matches all if unspecified."
-    })
-    @Config.RequiresMcRestart
-    public static String[] sellables = new String[0];
+    /*
+    @Config.Comment("Configuration for Base ConArm integration.")
+    public static final ConArm conarm = new ConArm();
 
-    @Config.Comment({
-            "How much the Elemental Wizardry modifier reduces Spell Cost for its Element by.",
-            "default: [0.1]"
-    })
-    public static float elementalWizardryCostReduction = 0.1f;
+    public static class ConArm {
 
-    @Config.Comment({
-            "Makes the \"None\"/\"Magic\" version of the 'Wizardry' Armor modifier for Wizardry's 'Magic' Element available with the default recipe.",
-            "Disabled by default, because this Element only has a single Spell by default, in Magic Missile.",
-            "default: [false]"
-    })
-    public static boolean enableNoneMagicWizardry = false;
+    }
+     */
+
+    @Config.Comment("Configuration for Electroblob's Wizardry integration.")
+    public static final EBWizardry ebwizardry = new EBWizardry();
+
+    public static class EBWizardry {
+        @Config.Comment({
+                "How much the Wizardry modifier reduces Spell Cost for its Element by.",
+                "default: [0.1]"
+        })
+        public float wizardryCostReduction = 0.1f;
+
+        @Config.Comment({
+                "Makes the \"None\"/\"Magic\" version of the 'Wizardry' Armor modifier for Wizardry's 'Magic' Element available with the default recipe.",
+                "Disabled by default, because this Element only has a single Spell by default, in Magic Missile.",
+                "default: [false]"
+        })
+        public boolean enableNoneMagicWizardry = false;
+
+        @Config.Comment("Configuration for Ancient Spellcraft integration.")
+        public final AncientSpellcraft ancientspellcraft = new AncientSpellcraft();
+
+        public static class AncientSpellcraft {
+            @Config.Comment({
+                    "How much the Antimagic trait for Armor should reduce Magic Damage by per level.",
+                    "Maximum total level is 3 for any individual armor piece.",
+                    "default: [0.1]"
+            })
+            @Config.RangeDouble(min = 0.0, max = 0.333)
+            public float antimagicArmorReductionPerLevel = 0.1f;
+        }
+    }
+
+    @Config.Comment("Configuration for FTB Money integration.")
+    public static final FTBMoney ftbmoney = new FTBMoney();
+
+    public static class FTBMoney {
+        @Config.Comment({
+                "Mapping of Items that can be sold by the Sellout Trait, and their values",
+                "Format is 'itemname@meta;value', ex: 'minecraft:diamond@0;5'. meta value is optional and matches all if unspecified."
+        })
+        @Config.RequiresMcRestart
+        public String[] sellables = new String[0];
+    }
+
+
 
 
     @Mod.EventBusSubscriber(modid = Tags.MOD_ID)
     public static class ConfigChangeListener {
         @SubscribeEvent
         public static void onConfigChange(ConfigChangedEvent.OnConfigChangedEvent event) {
+            TinkerTantrumMod.LOGGER.info("OnConfigChangedEvent fired for mod '{}'", event.getModID());
             if(event.getModID().equals(Tags.MOD_ID)) {
                 ConfigManager.sync(Tags.MOD_ID, Config.Type.INSTANCE);
 

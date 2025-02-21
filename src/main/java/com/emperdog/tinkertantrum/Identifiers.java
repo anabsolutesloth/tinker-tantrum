@@ -23,23 +23,27 @@ public class Identifiers {
     public static final String CHEESE_REAPER = "cheese_reaper";
 
     //Thaumcraft
-    public static final String MOD_REVEALING = "revealing";
-
     public static final String WARPED = "warped";
 
     //Mystical Agriculture
     public static final String ESSENCE_POWERED = "essence_powered";
 
-    //EBWizardry
-    public static final String WIZARDRY = "wizardry";
-
-    public static class Material {
-        public static final String CHEAT_MATERIAL = "cheat_material";
-
-        public static final String DEVORITIUM = "devoritium";
-
-        public static final String VOID_METAL = "void_metal";
-    }
 
     //Armor-specific
+
+    //Thaumcraft
+    public static final String MOD_REVEALING = "revealing";
+
+    //EBWizardry
+    public static final String MOD_WIZARDRY = "wizardry";
+
+
+    //Materials
+    public static final String MAT_CHEAT_MATERIAL = "cheat_material";
+
+    //Ancient Spellcraft
+    public static final String MAT_DEVORITIUM = "devoritium";
+
+    //Thaumcraft
+    public static final String MAT_VOID_METAL = "void_metal";
 }

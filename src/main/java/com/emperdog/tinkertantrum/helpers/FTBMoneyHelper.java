@@ -36,7 +36,7 @@ public class FTBMoneyHelper {
     public static void loadSellables() {
         //Sellables
         TinkerTantrumMod.LOGGER.info("Loading Sellable items for ModifierSellout");
-        for (String entry : TinkerTantrumConfig.sellables) {
+        for (String entry : TinkerTantrumConfig.ftbmoney.sellables) {
             String[] entryDetails = entry.split(";");
             String[] itemAndMeta = entryDetails[0].split("@");
             String item = itemAndMeta[0];

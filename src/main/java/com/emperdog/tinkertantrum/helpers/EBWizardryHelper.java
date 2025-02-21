@@ -1,7 +1,7 @@
 package com.emperdog.tinkertantrum.helpers;
 
 import c4.conarm.lib.armor.ArmorCore;
-import com.emperdog.tinkertantrum.Identifiers;
+import com.emperdog.tinkertantrum.TinkerTantrumMod;
 import com.emperdog.tinkertantrum.trait.conarm.ebwizardry.ModifierElementalWizardry;
 import electroblob.wizardry.event.SpellCastEvent;
 import electroblob.wizardry.util.InventoryUtils;
@@ -34,31 +34,26 @@ public class EBWizardryHelper {
 
         Arrays.stream(InventoryUtils.ARMOUR_SLOTS)
                 .map(s -> event.getCaster().getItemStackFromSlot(s))
-                .filter(item -> {
+                .filter(item -> item.getItem() instanceof ArmorCore
                     //TinkerTantrumMod.LOGGER.info("iterating on armor item '{}', instanceof ArmorCore: {}", item.getItem().getRegistryName().toString(), item.getItem() instanceof ArmorCore);
-
-                    if (item.getItem() instanceof ArmorCore) {
-                        for (NBTBase modifier : TagUtil.getModifiersTagList(item)) {
-                            //TinkerTantrumMod.LOGGER.info("modifier '{}' instanceof NBTTagString", modifier);
-                            if (modifier instanceof NBTTagCompound) {
-                                String modifierId = ((NBTTagCompound) modifier).getString("identifier");
-                                //TinkerTantrumMod.LOGGER.info("modifier '{}' startsWith 'elemental_wizardry': {}", modifierId, modifierId.startsWith(Identifiers.ELEMENTAL_WIZARDRY));
-                                if(modifierId.startsWith(Identifiers.WIZARDRY))
-                                    return true;
-                            }
-                        }
-                    }
-                    return false;
-                })
-                .forEach(item -> {
+                )
+                .map(item -> {
+                    IModifier modifier = null;
                     for (NBTBase modifierTag : TagUtil.getModifiersTagList(item)) {
                         if (modifierTag instanceof NBTTagCompound) {
-                            IModifier modifier = TinkerRegistry.getModifier(((NBTTagCompound) modifierTag).getString("identifier"));
-                            if(modifier instanceof ModifierElementalWizardry) {
-                                //TinkerTantrumMod.LOGGER.info("applying spell modifiers for modifier '{}'", modifier.getIdentifier());
-                                ((ModifierElementalWizardry) modifier).applySpellModifiers(event.getCaster(), event.getSpell(), armorModifiers);
-                            }
+                            String modIdentifier = ((NBTTagCompound) modifierTag).getString("identifier");
+                            IModifier thisModifier = TinkerRegistry.getModifier(modIdentifier);
+                            //TinkerTantrumMod.LOGGER.info("modifier '{}' instanceof ModifierElementalWizardry {}", modIdentifier, thisModifier instanceof ModifierElementalWizardry);
+                            if(thisModifier instanceof ModifierElementalWizardry)
+                                modifier = thisModifier;
                         }
+                    }
+                    return modifier;
+                })
+                .forEach(modifier -> {
+                    if(modifier != null) {
+                        //TinkerTantrumMod.LOGGER.info("processing ModifierElementalWizardry#applySpellModifiers() for modifier '{}'", modifier.getIdentifier());
+                        ((ModifierElementalWizardry) modifier).applySpellModifiers(event.getCaster(), event.getSpell(), armorModifiers);
                     }
                 });
 
