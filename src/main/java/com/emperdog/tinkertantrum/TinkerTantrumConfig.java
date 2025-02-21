@@ -81,6 +81,18 @@ public class TinkerTantrumConfig extends Configuration {
     }
 
 
+    @Config.Comment("Configuration for Thaumcraft integration")
+    public static final Thaumcraft thaumcraft = new Thaumcraft();
+
+    public static class Thaumcraft {
+        @Config.Comment({
+                "Number of Levels of the Warped trait to automatically instantiate.",
+                "Necessary for adding higher levels when customizing other Materials with tools such as Tweakers Construct or Crafttweaker. (i think)",
+                "Cannot be less than 2, because Tinker Tantrum uses levels 1 and 2, and those not existing would cause problems."
+        })
+        @Config.RangeInt(min = 2, max = 99)
+        public int warpedLevelsRegistered = 10;
+    }
 
 
     @Mod.EventBusSubscriber(modid = Tags.MOD_ID)

@@ -5,6 +5,7 @@ import com.emperdog.tinkertantrum.TinkerTantrumTraits;
 import com.emperdog.tinkertantrum.helpers.AncientSpellcraftHelper;
 import com.emperdog.tinkertantrum.helpers.EBWizardryHelper;
 import com.emperdog.tinkertantrum.helpers.FTBMoneyHelper;
+import com.emperdog.tinkertantrum.helpers.ThaumcraftHelper;
 import com.emperdog.tinkertantrum.trait.conarm.TinkerTantrumArmorTraits;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
@@ -38,6 +39,9 @@ public class CommonProxy {
 
         if(Loader.isModLoaded("ancientspellcraft") && conarmLoaded)
             MinecraftForge.EVENT_BUS.register(AncientSpellcraftHelper.INSTANCE);
+
+        if(Loader.isModLoaded("thaumcraft"))
+            MinecraftForge.EVENT_BUS.register(ThaumcraftHelper.INSTANCE);
     }
 
     public void postInit(FMLPostInitializationEvent event) {

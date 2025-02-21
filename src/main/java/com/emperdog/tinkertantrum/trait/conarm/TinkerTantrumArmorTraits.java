@@ -55,22 +55,23 @@ public class TinkerTantrumArmorTraits {
      * </p>
      * Modifiers are considered "Available" if they either do NOT Implement {@link IRequiresMods}, or do Implement it, and all required Mods are loaded.
      */
-    public static final List<IModifier> AVAILABLE_ARMOR_MODIFIERS;
+    public static final List<IModifier> AVAILABLE_ARMOR_MODIFIERS = new ArrayList<>();
 
 
     static {
         ARMOR_MODIFIERS.add(REVEALING);
 
-        if(Loader.isModLoaded("ebwizardry"))
+        if (Loader.isModLoaded("ebwizardry"))
             for (Element element : Element.values()) {
                 ModifierElementalWizardry elementalWizardry = new ModifierElementalWizardry(element);
 
                 MOD_ELEMENTAL_WIZARDRY.put(element.getName(), elementalWizardry);
                 //TinkerTantrumMod.LOGGER.info(TinkerTantrumArmorTraits.MOD_ELEMENTAL_WIZARDRY.get(element.getName()).identifier);
             }
+
         ARMOR_MODIFIERS.addAll(MOD_ELEMENTAL_WIZARDRY.values());
-        
-        AVAILABLE_ARMOR_MODIFIERS = TinkerTantrumTraits.filterAvailableModifiers(ARMOR_MODIFIERS);
+
+        AVAILABLE_ARMOR_MODIFIERS.addAll(TinkerTantrumTraits.filterAvailableModifiers(ARMOR_MODIFIERS));
     }
     
 

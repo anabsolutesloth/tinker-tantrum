@@ -89,7 +89,7 @@ public class TinkerTantrumMaterials {
                 .addStats(new ExtraMaterialStats(90));
 
         addTraitIfAvailable(VOID_METAL, TinkerTantrumTraits.NIHILO, MaterialTypes.HEAD);
-        addTraitIfAvailable(VOID_METAL, TraitWarped.getInstance(1), MaterialTypes.HEAD);
+        addTraitIfAvailable(VOID_METAL, TinkerTantrumTraits.WARPED.get(2), MaterialTypes.HEAD);
 
         if(conarmLoaded) {
             VOID_METAL.addStats(new CoreMaterialStats(9, 18.0f))
@@ -98,8 +98,8 @@ public class TinkerTantrumMaterials {
 
             addTraitIfAvailable(VOID_METAL, TinkerTantrumTraits.NIHILO, ArmorMaterialType.CORE);
             addTraitIfAvailable(VOID_METAL, TinkerTantrumTraits.NIHILO, ArmorMaterialType.PLATES);
-            addTraitIfAvailable(VOID_METAL, TraitWarped.getInstance(1), ArmorMaterialType.CORE);
-            addTraitIfAvailable(VOID_METAL, TraitWarped.getInstance(1), ArmorMaterialType.PLATES);
+            addTraitIfAvailable(VOID_METAL, TinkerTantrumTraits.WARPED.get(2), ArmorMaterialType.CORE);
+            addTraitIfAvailable(VOID_METAL, TinkerTantrumTraits.WARPED.get(1), ArmorMaterialType.PLATES);
         }
 
         if(Loader.isModLoaded("thaumcraft")) {

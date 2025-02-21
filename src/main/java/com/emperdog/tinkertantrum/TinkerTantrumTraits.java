@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static com.emperdog.tinkertantrum.trait.conarm.TinkerTantrumArmorTraits.ARMOR_MODIFIERS;
+import static com.emperdog.tinkertantrum.trait.conarm.TinkerTantrumArmorTraits.AVAILABLE_ARMOR_MODIFIERS;
 
 public class TinkerTantrumTraits {
 
@@ -54,8 +55,9 @@ public class TinkerTantrumTraits {
 
     //Thaumcraft
     /**
-     * Storage of {@link TraitWarped} instances.
-     * Use {@link TraitWarped#getInstance(int)} to retrieve instances of this trait.
+     * Storage for TraitWarped instances.
+     * When getting, use int exactly equal to the level of the instance you want to retrieve. Note that 0 is not mapped.
+     * Instances instantiated is determined by a config value.
      */
     public static final Map<Integer, TraitWarped> WARPED = new HashMap<>();
 
@@ -73,31 +75,37 @@ public class TinkerTantrumTraits {
      * </p>
      * Modifiers are considered "Available" if they either do NOT Implement {@link IRequiresMods}, or do Implement it, and all required Mods are loaded.
      */
-    public static final List<IModifier> AVAILABLE_TOOL_MODIFIERS;
+    public static final List<IModifier> AVAILABLE_TOOL_MODIFIERS = new ArrayList<>();
 
     /**
      * List of All Tool and Armor Modifiers from Tinker Tantrum
      * </p>
      * May contain Modifiers built for Mods that may not be present!
      */
-    public static final List<IModifier> ALL_MODIFIERS;
+    public static final List<IModifier> ALL_MODIFIERS = new ArrayList<>();
 
     /**
      * List of All "Available" Tool and Armor Modifiers from Tinker Tantrum.
      * </p>
      * Modifiers are considered "Available" if they either do NOT Implement {@link IRequiresMods}, or do Implement it, and all required Mods are loaded.
      */
-    public static final List<IModifier> ALL_AVAILABLE_MODIFIERS;
+    public static final List<IModifier> ALL_AVAILABLE_MODIFIERS = new ArrayList<>();
 
 
     static {
+        for (int i = 1; i < 1 + TinkerTantrumConfig.thaumcraft.warpedLevelsRegistered; i++) {
+            //TinkerTantrumMod.LOGGER.info("Instantiating new TraitWarped instance of level {}", i);
+            WARPED.put(i, new TraitWarped(i));
+        }
+
         TOOL_MODIFIERS.add(SELLOUT);
 
+        AVAILABLE_TOOL_MODIFIERS.addAll(filterAvailableModifiers(TOOL_MODIFIERS));
 
-        AVAILABLE_TOOL_MODIFIERS = filterAvailableModifiers(TOOL_MODIFIERS);
 
-        ALL_MODIFIERS = Stream.concat(TOOL_MODIFIERS.parallelStream(), ARMOR_MODIFIERS.parallelStream()).collect(Collectors.toList());
-        ALL_AVAILABLE_MODIFIERS = filterAvailableModifiers(ALL_MODIFIERS);
+        ALL_MODIFIERS.addAll(Stream.concat(TOOL_MODIFIERS.parallelStream(), ARMOR_MODIFIERS.parallelStream()).collect(Collectors.toList()));
+
+        ALL_AVAILABLE_MODIFIERS.addAll(Stream.concat(AVAILABLE_TOOL_MODIFIERS.parallelStream(), AVAILABLE_ARMOR_MODIFIERS.parallelStream()).collect(Collectors.toList()));
     }
 
 
