@@ -5,28 +5,29 @@ import com.google.common.collect.ImmutableList;
 import net.minecraftforge.fml.common.Loader;
 import zone.rong.mixinbooter.ILateMixinLoader;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class TinkerTantrumMixins implements ILateMixinLoader {
 
-    List<String> mixins = ImmutableList.of("conarm");
+    List<String> notModNames = ImmutableList.of("mixins", "json");
+
+    List<String> mixins = ImmutableList.of("conarm.thaumcraft");
 
     @Override
     public List<String> getMixinConfigs() {
         return mixins.stream()
-                .map(mod -> "mixins."+ mod +".json")
+                .map(name -> "mixins."+ name +".json")
                 .collect(Collectors.toList());
-        /*
-        mixins.stream()
-                .filter(Loader::isModLoaded)
-
-         */
     }
 
     @Override
     public boolean shouldMixinConfigQueue(String mixinConfig) {
-        TinkerTantrumMod.LOGGER.info("config: {}, modid: {}", mixinConfig, mixinConfig.split("\\."));
-        return Loader.isModLoaded(mixinConfig.split("\\.")[1]);
+        TinkerTantrumMod.LOGGER.info("loading Mixin config: {}", mixinConfig);
+        //TinkerTantrumMod.LOGGER.info("requires mod '{}'", mod);
+        return Arrays.stream(mixinConfig.split("\\."))
+                .filter(string -> !notModNames.contains(string))
+                .allMatch(Loader::isModLoaded);
     }
 }
