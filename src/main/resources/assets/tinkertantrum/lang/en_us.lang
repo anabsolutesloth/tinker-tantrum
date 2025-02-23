@@ -60,3 +60,6 @@ modifier.wizardry_armor.extra=%s Cost: -%s%%
 # Materials
 material.devoritium.name=Devoritium
 material.void_metal.name=Void Metal
+
+fluid.tinkertantrum.devoritium.name=Molten Devoritium
+fluid.tinkertantrum.void_metal.name=Molten Void Metal

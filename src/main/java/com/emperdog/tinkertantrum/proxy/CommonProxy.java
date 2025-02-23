@@ -1,6 +1,8 @@
 package com.emperdog.tinkertantrum.proxy;
 
+import com.emperdog.tinkertantrum.TinkerTantrumFluids;
 import com.emperdog.tinkertantrum.TinkerTantrumMaterials;
+import com.emperdog.tinkertantrum.TinkerTantrumMod;
 import com.emperdog.tinkertantrum.TinkerTantrumTraits;
 import com.emperdog.tinkertantrum.helpers.AncientSpellcraftHelper;
 import com.emperdog.tinkertantrum.helpers.EBWizardryHelper;
@@ -13,6 +15,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import slimeknights.tconstruct.library.client.MaterialRenderInfo;
+import slimeknights.tconstruct.library.materials.Material;
+
+import java.util.function.Supplier;
 
 import static com.emperdog.tinkertantrum.TinkerTantrumMod.conarmLoaded;
 
@@ -21,6 +27,7 @@ public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent event) {
         TinkerTantrumMaterials.preInit();
+        MinecraftForge.EVENT_BUS.register(TinkerTantrumFluids.INSTANCE);
     }
 
     public void init(FMLInitializationEvent event) {
@@ -47,5 +54,9 @@ public class CommonProxy {
     public void postInit(FMLPostInitializationEvent event) {
         TinkerTantrumTraits.initModifierRecipes();
         TinkerTantrumArmorTraits.initModifierRecipes();
+    }
+
+    public void setRenderInfo(Material material, Supplier<MaterialRenderInfo> renderInfo) {
+            //NO-OP
     }
 }

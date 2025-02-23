@@ -21,12 +21,14 @@ import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.book.TinkerBook;
 import slimeknights.tconstruct.library.client.MaterialRenderInfo;
 import slimeknights.tconstruct.library.client.model.ModelHelper;
+import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static com.emperdog.tinkertantrum.TinkerTantrumMod.conarmLoaded;
@@ -40,7 +42,6 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
-        initRenderInfo();
     }
 
     @Override
@@ -72,9 +73,10 @@ public class ClientProxy extends CommonProxy {
         }
     }
 
-    public static void initRenderInfo() {
-        TinkerTantrumMaterials.DEVORITIUM.setRenderInfo(new MaterialRenderInfo.Metal(0x504752, 0.6f, 0.2f, 0.0f));
-        TinkerTantrumMaterials.VOID_METAL.setRenderInfo(new MaterialRenderInfo.Metal(0x1F0D34, 0.2f, 0.1f, 0.0f));
+    @Override
+    public void setRenderInfo(Material material, Supplier<MaterialRenderInfo> renderInfo) {
+        //TinkerTantrumMod.LOGGER.info("setting RenderInfo for material '{}' of type {}", material.getIdentifier(), renderInfo.get());
+        material.setRenderInfo(renderInfo.get());
     }
 
     public static List<IModifier> filterHiddenModifiers(List<IModifier> modifiers) {

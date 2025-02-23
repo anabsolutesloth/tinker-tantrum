@@ -1,7 +1,6 @@
 package com.emperdog.tinkertantrum.trait.conarm;
 
 import c4.conarm.lib.utils.RecipeMatchHolder;
-import com.emperdog.tinkertantrum.TinkerTantrumConfig;
 import com.emperdog.tinkertantrum.TinkerTantrumMod;
 import com.emperdog.tinkertantrum.TinkerTantrumTraits;
 import com.emperdog.tinkertantrum.trait.IRequiresMods;
