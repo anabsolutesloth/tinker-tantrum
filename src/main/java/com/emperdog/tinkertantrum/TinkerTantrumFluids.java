@@ -20,16 +20,17 @@ public class TinkerTantrumFluids {
 
     //definitely not copying TConstruct's fluid registry :)
 
-    public static FluidMolten fluidMetal(Material material, Consumer<Fluid> properties) {
+    public static FluidMolten fluidMetal(Material material, Consumer<FluidMolten> properties) {
         FluidMolten fluid = new FluidMolten(material.identifier, material.materialTextColor);
         properties.accept(fluid);
+        fluids.put(material.identifier, fluid);
         return registerFluid(fluid);
     }
 
     private static <T extends Fluid> T registerFluid(T fluid) {
         fluid.setUnlocalizedName(Tags.MOD_ID +"."+ fluid.getName());
         FluidRegistry.registerFluid(fluid);
-        //TinkerTantrumMod.LOGGER.info("registered fluid '{}'", fluid.getName());
+        TinkerTantrumMod.LOGGER.info("registered fluid '{}'", fluid.getName());
         return fluid;
     }
 

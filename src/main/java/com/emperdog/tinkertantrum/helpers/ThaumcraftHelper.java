@@ -1,10 +1,8 @@
 package com.emperdog.tinkertantrum.helpers;
 
-import c4.conarm.lib.events.ArmoryEvent;
 import com.emperdog.tinkertantrum.Identifiers;
 import com.emperdog.tinkertantrum.TinkerTantrumMod;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import slimeknights.tconstruct.library.events.TinkerEvent;
 import slimeknights.tconstruct.library.utils.TagUtil;
@@ -17,8 +15,7 @@ public class ThaumcraftHelper {
 
     public static String NBT_KEY_WARP = "TC.WARP";
 
-    private static void handleTinkerBuildingEvent(Event event) {
-        NBTTagCompound tag = getTag(event);
+    public static void handleTinkerBuildingEvent(NBTTagCompound tag) {
         //get Warp data from Warped Memory
         int warpedMemory = tag.getInteger(NBT_KEY_WARPED_MEMORY);
         //TinkerTantrumMod.LOGGER.info("caught '{}' for Warped Removal logic Handler. Memory value: {}", event.getClass().getName(), warpedMemory);
@@ -44,22 +41,9 @@ public class ThaumcraftHelper {
         tag.removeTag(NBT_KEY_WARPED_MEMORY);
     }
 
-    private static NBTTagCompound getTag(Event event) throws IllegalArgumentException {
-        if(event instanceof TinkerEvent.OnItemBuilding)
-            return ((TinkerEvent.OnItemBuilding) event).tag;
-        else if(event instanceof ArmoryEvent.OnItemBuilding)
-            return ((ArmoryEvent.OnItemBuilding) event).tag;
-        else
-            throw new IllegalArgumentException("ThaumcraftHelper#getTag was supplied with an event other than OnItemBuilding!", new Throwable(event.getClass().getName()));
-    }
-
     @SubscribeEvent
     public void onToolBuild(TinkerEvent.OnItemBuilding event) {
-        handleTinkerBuildingEvent(event);
-    }
-
-    @SubscribeEvent
-    public void onArmorBuild(ArmoryEvent.OnItemBuilding event) {
-        handleTinkerBuildingEvent(event);
+        handleTinkerBuildingEvent(event.tag);
+        TinkerTantrumMod.LOGGER.info("processed handleTinkerBuildingEvent in ThaumcraftHelper, result: {}", event.tag.toString());
     }
 }

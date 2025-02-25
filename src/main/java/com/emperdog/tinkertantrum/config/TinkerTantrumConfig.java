@@ -1,5 +1,7 @@
-package com.emperdog.tinkertantrum;
+package com.emperdog.tinkertantrum.config;
 
+import com.emperdog.tinkertantrum.Tags;
+import com.emperdog.tinkertantrum.TinkerTantrumMod;
 import com.emperdog.tinkertantrum.helpers.FTBMoneyHelper;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;

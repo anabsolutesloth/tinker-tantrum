@@ -1,9 +1,13 @@
 package com.emperdog.tinkertantrum.proxy;
 
 import com.emperdog.tinkertantrum.TinkerTantrumFluids;
-import com.emperdog.tinkertantrum.TinkerTantrumMaterials;
 import com.emperdog.tinkertantrum.TinkerTantrumMod;
-import com.emperdog.tinkertantrum.TinkerTantrumTraits;
+import com.emperdog.tinkertantrum.eventhandler.ConArmEventHandler;
+import com.emperdog.tinkertantrum.material.LateArmorMaterialInfo;
+import com.emperdog.tinkertantrum.material.LateMaterialInfo;
+import com.emperdog.tinkertantrum.material.TinkerTantrumArmorMaterials;
+import com.emperdog.tinkertantrum.material.TinkerTantrumMaterials;
+import com.emperdog.tinkertantrum.trait.TinkerTantrumTraits;
 import com.emperdog.tinkertantrum.helpers.AncientSpellcraftHelper;
 import com.emperdog.tinkertantrum.helpers.EBWizardryHelper;
 import com.emperdog.tinkertantrum.helpers.FTBMoneyHelper;
@@ -15,10 +19,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import slimeknights.tconstruct.library.client.MaterialRenderInfo;
 import slimeknights.tconstruct.library.materials.Material;
-
-import java.util.function.Supplier;
 
 import static com.emperdog.tinkertantrum.TinkerTantrumMod.conarmLoaded;
 
@@ -26,13 +27,33 @@ import static com.emperdog.tinkertantrum.TinkerTantrumMod.conarmLoaded;
 public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent event) {
-        TinkerTantrumMaterials.preInit();
         MinecraftForge.EVENT_BUS.register(TinkerTantrumFluids.INSTANCE);
+        TinkerTantrumMaterials.preInit();
+        TinkerTantrumArmorMaterials.preInit();
+        LateMaterialInfo.preInit();
     }
 
     public void init(FMLInitializationEvent event) {
         TinkerTantrumMaterials.init();
+        LateMaterialInfo.init();
+        LateArmorMaterialInfo.init();
+
+        TinkerTantrumTraits.initModifierRecipes();
+        if(conarmLoaded)
+            TinkerTantrumArmorTraits.initModifierRecipes();
         //LOGGER.info("is FTB Money loaded? {}", Loader.isModLoaded("ftbmoney"));
+        subscribeEventHandlers();
+    }
+
+    public void postInit(FMLPostInitializationEvent event) {
+
+    }
+
+    public void setRenderInfo(Material material, String type, Object... args) {
+            //NO-OP
+    }
+
+    public void subscribeEventHandlers() {
         if(Loader.isModLoaded("ftbmoney")) {
             FTBMoneyHelper.loadSellables();
             MinecraftForge.EVENT_BUS.register(FTBMoneyHelper.INSTANCE);
@@ -47,16 +68,10 @@ public class CommonProxy {
         if(Loader.isModLoaded("ancientspellcraft") && conarmLoaded)
             MinecraftForge.EVENT_BUS.register(AncientSpellcraftHelper.INSTANCE);
 
-        if(Loader.isModLoaded("thaumcraft"))
+        if(Loader.isModLoaded("thaumcraft")) {
             MinecraftForge.EVENT_BUS.register(ThaumcraftHelper.INSTANCE);
-    }
-
-    public void postInit(FMLPostInitializationEvent event) {
-        TinkerTantrumTraits.initModifierRecipes();
-        TinkerTantrumArmorTraits.initModifierRecipes();
-    }
-
-    public void setRenderInfo(Material material, Supplier<MaterialRenderInfo> renderInfo) {
-            //NO-OP
+            if(conarmLoaded)
+                MinecraftForge.EVENT_BUS.register(ConArmEventHandler.INSTANCE);
+        }
     }
 }

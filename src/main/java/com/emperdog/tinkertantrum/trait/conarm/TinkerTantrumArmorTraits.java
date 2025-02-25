@@ -2,8 +2,7 @@ package com.emperdog.tinkertantrum.trait.conarm;
 
 import c4.conarm.lib.utils.RecipeMatchHolder;
 import com.emperdog.tinkertantrum.TinkerTantrumMod;
-import com.emperdog.tinkertantrum.TinkerTantrumTraits;
-import com.emperdog.tinkertantrum.trait.IRequiresMods;
+import com.emperdog.tinkertantrum.trait.TinkerTantrumTraits;
 import com.emperdog.tinkertantrum.trait.conarm.ancientspellcraft.TraitAntimagicArmor;
 import com.emperdog.tinkertantrum.trait.conarm.ebwizardry.ModifierElementalWizardry;
 import com.emperdog.tinkertantrum.trait.conarm.ftbmoney.TraitCapitalismArmor;
@@ -13,10 +12,13 @@ import electroblob.wizardry.registry.WizardryItems;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Loader;
 import slimeknights.mantle.util.RecipeMatch;
-import slimeknights.tconstruct.library.modifiers.IModifier;
 import thaumcraft.api.items.ItemsTC;
 
 import java.util.*;
+
+import static com.emperdog.tinkertantrum.TinkerTantrumMod.conarmLoaded;
+import static com.emperdog.tinkertantrum.trait.TinkerTantrumTraits.ARMOR_MODIFIERS;
+import static com.emperdog.tinkertantrum.trait.TinkerTantrumTraits.AVAILABLE_ARMOR_MODIFIERS;
 
 public class TinkerTantrumArmorTraits {
 
@@ -39,22 +41,7 @@ public class TinkerTantrumArmorTraits {
      * </p> If any instance is present, all should be, so {@link List#isEmpty()} can be used as a safety check.
      */
     public static final Map<String, ModifierElementalWizardry> MOD_ELEMENTAL_WIZARDRY = new HashMap<>();
-    
 
-
-    /**
-     * List of All ConArm Armor Modifiers from Tinker Tantrum.
-     * </p>
-     * May contain Modifiers built for Mods that may not be present!
-     */
-    public static final List<IModifier> ARMOR_MODIFIERS = new ArrayList<>();
-
-    /**
-     * List of All "Available" ConArm Armor Modifiers from Tinker Tantrum.
-     * </p>
-     * Modifiers are considered "Available" if they either do NOT Implement {@link IRequiresMods}, or do Implement it, and all required Mods are loaded.
-     */
-    public static final List<IModifier> AVAILABLE_ARMOR_MODIFIERS = new ArrayList<>();
 
 
     static {
@@ -72,14 +59,9 @@ public class TinkerTantrumArmorTraits {
 
         AVAILABLE_ARMOR_MODIFIERS.addAll(TinkerTantrumTraits.filterAvailableModifiers(ARMOR_MODIFIERS));
     }
-    
+
 
     public static void initModifierRecipes() {
-        if(!Loader.isModLoaded("conarm")) {
-            TinkerTantrumMod.LOGGER.info("conarm is not loaded, skipping loading Armor Modifier recipes.");
-            return;
-        }
-
         if (Loader.isModLoaded("thaumcraft"))
             //REVEALING.addItem(ItemsTC.goggles);
             RecipeMatchHolder.addItem(REVEALING, ItemsTC.goggles);

@@ -40,7 +40,7 @@ public class TraitAntimagicArmor extends AbstractArmorTraitLeveled implements IR
                     .map(slot -> ((EntityLivingBase) entity).getItemStackFromSlot(slot))
                     .anyMatch(item -> item.equals(tool))) // disabled when in armor slots.
             return;
-        TinkerTantrumMod.LOGGER.info("processed TraitAntimagicArmor#onUpdate");
+        //TinkerTantrumMod.LOGGER.info("processed TraitAntimagicArmor#onUpdate");
         AncientSpellcraftHelper.antimagicTraitTick(entity, TantrumUtil.getModifierData(tool, name).level);
     }
 

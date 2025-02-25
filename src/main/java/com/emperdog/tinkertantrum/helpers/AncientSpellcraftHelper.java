@@ -1,10 +1,9 @@
 package com.emperdog.tinkertantrum.helpers;
 
 import c4.conarm.lib.armor.ArmorCore;
+import com.emperdog.tinkertantrum.Identifiers;
 import com.emperdog.tinkertantrum.TantrumUtil;
-import com.emperdog.tinkertantrum.TinkerTantrumConfig;
-import com.emperdog.tinkertantrum.TinkerTantrumMod;
-import com.emperdog.tinkertantrum.trait.conarm.TinkerTantrumArmorTraits;
+import com.emperdog.tinkertantrum.config.TinkerTantrumConfig;
 import com.windanesz.ancientspellcraft.registry.ASPotions;
 import electroblob.wizardry.util.IElementalDamage;
 import electroblob.wizardry.util.InventoryUtils;
@@ -45,7 +44,7 @@ public class AncientSpellcraftHelper {
                 .map(slot -> event.getEntityLiving().getItemStackFromSlot(slot))
                 .filter(item -> item.getItem() instanceof ArmorCore)
                 .forEach(item -> {
-                    int level = TantrumUtil.getModifierData(item, TinkerTantrumArmorTraits.ANTIMAGIC.getName()).level;
+                    int level = TantrumUtil.getModifierData(item, Identifiers.ANTIMAGIC).level;
                     float newAmount = event.getAmount() * (1.0f - (TinkerTantrumConfig.ebwizardry.ancientspellcraft.antimagicArmorReductionPerLevel * level));
                     //TinkerTantrumMod.LOGGER.info("processed TraitAntimagicArmor LivingHurtEvent handler for armor piece '{}' with level {}, damage reduced to {}",
                     //        item.getItem().getRegistryName().toString(), level, newAmount);

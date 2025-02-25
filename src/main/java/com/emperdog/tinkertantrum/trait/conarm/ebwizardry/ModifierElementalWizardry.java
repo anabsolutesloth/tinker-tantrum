@@ -2,7 +2,7 @@ package com.emperdog.tinkertantrum.trait.conarm.ebwizardry;
 
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
 import com.emperdog.tinkertantrum.Identifiers;
-import com.emperdog.tinkertantrum.TinkerTantrumConfig;
+import com.emperdog.tinkertantrum.config.TinkerTantrumConfig;
 import com.emperdog.tinkertantrum.trait.IBookHideable;
 import com.emperdog.tinkertantrum.trait.IRequiresMods;
 import com.google.common.collect.ImmutableList;
@@ -12,7 +12,6 @@ import electroblob.wizardry.util.SpellModifiers;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.fml.client.config.GuiUtils;
 import slimeknights.tconstruct.library.Util;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.modifiers.IToolMod;
@@ -27,7 +26,7 @@ public class ModifierElementalWizardry extends ArmorModifierTrait implements IRe
     public Element element;
 
     public ModifierElementalWizardry(Element element) {
-        super(Identifiers.MOD_WIZARDRY +"_"+ element, GuiUtils.getColorCode(element.getColour().color.formattingCode, true));
+        super(Identifiers.MOD_WIZARDRY +"_"+ element, Util.enumChatFormattingToColor(element.getColour().color));
         this.element = element;
     }
 

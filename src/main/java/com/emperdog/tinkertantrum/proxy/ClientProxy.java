@@ -2,12 +2,11 @@ package com.emperdog.tinkertantrum.proxy;
 
 import c4.conarm.lib.book.ArmoryBook;
 import com.emperdog.tinkertantrum.Tags;
-import com.emperdog.tinkertantrum.TinkerTantrumMaterials;
 import com.emperdog.tinkertantrum.TinkerTantrumMod;
-import com.emperdog.tinkertantrum.TinkerTantrumTraits;
+import com.emperdog.tinkertantrum.trait.TinkerTantrumTraits;
+import com.emperdog.tinkertantrum.client.TinkerTantrumClient;
 import com.emperdog.tinkertantrum.client.TinkerTantrumModifiersTransformer;
 import com.emperdog.tinkertantrum.trait.IBookHideable;
-import com.emperdog.tinkertantrum.trait.conarm.TinkerTantrumArmorTraits;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.TextureStitchEvent;
@@ -19,7 +18,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import slimeknights.mantle.client.book.repository.FileRepository;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.book.TinkerBook;
-import slimeknights.tconstruct.library.client.MaterialRenderInfo;
 import slimeknights.tconstruct.library.client.model.ModelHelper;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.IModifier;
@@ -28,7 +26,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static com.emperdog.tinkertantrum.TinkerTantrumMod.conarmLoaded;
@@ -53,9 +50,8 @@ public class ClientProxy extends CommonProxy {
         ));
         if(conarmLoaded)
             ArmoryBook.INSTANCE.addTransformer(new TinkerTantrumModifiersTransformer(new FileRepository("tinkertantrum:armory_book"), true,
-                    () -> filterHiddenModifiers(TinkerTantrumArmorTraits.AVAILABLE_ARMOR_MODIFIERS)
+                    () -> filterHiddenModifiers(TinkerTantrumTraits.AVAILABLE_ARMOR_MODIFIERS)
             ));
-        //TinkerBook.INSTANCE.addRepository(new FileRepository("tinkertantrum:book"));
         //TinkerTantrumMod.LOGGER.info("loaded TinkerTantrumClient#postInit()");
     }
 
@@ -74,9 +70,9 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void setRenderInfo(Material material, Supplier<MaterialRenderInfo> renderInfo) {
-        //TinkerTantrumMod.LOGGER.info("setting RenderInfo for material '{}' of type {}", material.getIdentifier(), renderInfo.get());
-        material.setRenderInfo(renderInfo.get());
+    public void setRenderInfo(Material material, String type, Object... args) {
+        //TinkerTantrumMod.LOGGER.info("setting MaterialRenderInfo for material '{}' to type '{}' with {}", material.getIdentifier(), type, args);
+        TinkerTantrumClient.setRenderInfo(material, type, args);
     }
 
     public static List<IModifier> filterHiddenModifiers(List<IModifier> modifiers) {

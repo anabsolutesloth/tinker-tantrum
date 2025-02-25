@@ -1,6 +1,7 @@
-package com.emperdog.tinkertantrum;
+package com.emperdog.tinkertantrum.trait;
 
-import com.emperdog.tinkertantrum.trait.*;
+import com.emperdog.tinkertantrum.TinkerTantrumMod;
+import com.emperdog.tinkertantrum.config.TinkerTantrumConfig;
 import com.emperdog.tinkertantrum.trait.ancientspellcraft.TraitAntimagic;
 import com.emperdog.tinkertantrum.trait.conarm.TinkerTantrumArmorTraits;
 import com.emperdog.tinkertantrum.trait.ftbmoney.ModifierSellout;
@@ -18,8 +19,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static com.emperdog.tinkertantrum.trait.conarm.TinkerTantrumArmorTraits.ARMOR_MODIFIERS;
-import static com.emperdog.tinkertantrum.trait.conarm.TinkerTantrumArmorTraits.AVAILABLE_ARMOR_MODIFIERS;
+import static com.emperdog.tinkertantrum.TinkerTantrumMod.conarmLoaded;
 
 public class TinkerTantrumTraits {
 
@@ -90,6 +90,20 @@ public class TinkerTantrumTraits {
      * Modifiers are considered "Available" if they either do NOT Implement {@link IRequiresMods}, or do Implement it, and all required Mods are loaded.
      */
     public static final List<IModifier> ALL_AVAILABLE_MODIFIERS = new ArrayList<>();
+
+    /**
+     * List of All ConArm Armor Modifiers from Tinker Tantrum.
+     * </p>
+     * May contain Modifiers built for Mods that may not be present!
+     */
+    public static final List<IModifier> ARMOR_MODIFIERS = new ArrayList<>();
+
+    /**
+     * List of All "Available" ConArm Armor Modifiers from Tinker Tantrum.
+     * </p>
+     * Modifiers are considered "Available" if they either do NOT Implement {@link IRequiresMods}, or do Implement it, and all required Mods are loaded.
+     */
+    public static final List<IModifier> AVAILABLE_ARMOR_MODIFIERS = new ArrayList<>();
 
 
     static {

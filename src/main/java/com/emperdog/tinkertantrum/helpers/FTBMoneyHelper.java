@@ -1,7 +1,7 @@
 package com.emperdog.tinkertantrum.helpers;
 
 import com.emperdog.tinkertantrum.Identifiers;
-import com.emperdog.tinkertantrum.TinkerTantrumConfig;
+import com.emperdog.tinkertantrum.config.TinkerTantrumConfig;
 import com.emperdog.tinkertantrum.TinkerTantrumMod;
 import com.feed_the_beast.mods.money.FTBMoney;
 import net.minecraft.entity.item.EntityItem;
