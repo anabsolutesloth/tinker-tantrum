@@ -1,5 +1,6 @@
 package com.emperdog.tinkertantrum.helpers;
 
+import c4.conarm.lib.events.ArmoryEvent;
 import com.emperdog.tinkertantrum.Identifiers;
 import com.emperdog.tinkertantrum.TinkerTantrumMod;
 import net.minecraft.nbt.NBTTagCompound;
@@ -44,6 +45,14 @@ public class ThaumcraftHelper {
     @SubscribeEvent
     public void onToolBuild(TinkerEvent.OnItemBuilding event) {
         handleTinkerBuildingEvent(event.tag);
-        TinkerTantrumMod.LOGGER.info("processed handleTinkerBuildingEvent in ThaumcraftHelper, result: {}", event.tag.toString());
+        //TinkerTantrumMod.LOGGER.info("processed handleTinkerBuildingEvent in ThaumcraftHelper, result: {}", event.tag.toString());
+    }
+
+    public static class ConArmEvents {
+        @SubscribeEvent
+        public void onArmorBuild(ArmoryEvent.OnItemBuilding event) {
+            handleTinkerBuildingEvent(event.tag);
+            //TinkerTantrumMod.LOGGER.info("processed handleTinkerBuildingEvent in ConArmEventHandler, result: {}", event.tag.toString());
+        }
     }
 }

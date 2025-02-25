@@ -74,6 +74,8 @@ public class LateMaterialInfo {
             extraActions.accept(material);
 
         material.setVisible();
+
+        TinkerTantrumMaterials.ALL.add(material);
     }
 
     public void initCrafting() {

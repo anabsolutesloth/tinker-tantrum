@@ -1,8 +1,6 @@
 package com.emperdog.tinkertantrum.proxy;
 
 import com.emperdog.tinkertantrum.TinkerTantrumFluids;
-import com.emperdog.tinkertantrum.TinkerTantrumMod;
-import com.emperdog.tinkertantrum.eventhandler.ConArmEventHandler;
 import com.emperdog.tinkertantrum.material.LateArmorMaterialInfo;
 import com.emperdog.tinkertantrum.material.LateMaterialInfo;
 import com.emperdog.tinkertantrum.material.TinkerTantrumArmorMaterials;
@@ -71,7 +69,7 @@ public class CommonProxy {
         if(Loader.isModLoaded("thaumcraft")) {
             MinecraftForge.EVENT_BUS.register(ThaumcraftHelper.INSTANCE);
             if(conarmLoaded)
-                MinecraftForge.EVENT_BUS.register(ConArmEventHandler.INSTANCE);
+                MinecraftForge.EVENT_BUS.register(new ThaumcraftHelper.ConArmEvents());
         }
     }
 }
