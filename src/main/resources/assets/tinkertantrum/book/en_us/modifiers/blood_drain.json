@@ -1,0 +1,18 @@
+{
+  "modifier": "blood_drain",
+  "text": [
+    {
+      "text": "Forging Blood Infused Iron into your Tool gives it a Vampiric thirst for Blood."
+    }
+  ],
+  "effects": [
+    "Drains Blood when killing Mobs with Blood",
+    "Feeds you with any drained Blood, and puts extra into containers.",
+    "Only works for Vampires."
+  ],
+  "demoTool": [
+    "tconstruct:broadsword",
+    "tconstruct:pickaxe",
+    "tconstruct:cleaver"
+  ]
+}

@@ -1,9 +1,9 @@
 package com.emperdog.tinkertantrum.proxy;
 
 import com.emperdog.tinkertantrum.TinkerTantrumFluids;
-import com.emperdog.tinkertantrum.material.LateArmorMaterialInfo;
+import com.emperdog.tinkertantrum.material.armory.LateArmorMaterialInfo;
 import com.emperdog.tinkertantrum.material.LateMaterialInfo;
-import com.emperdog.tinkertantrum.material.TinkerTantrumArmorMaterials;
+import com.emperdog.tinkertantrum.material.armory.TinkerTantrumArmorMaterials;
 import com.emperdog.tinkertantrum.material.TinkerTantrumMaterials;
 import com.emperdog.tinkertantrum.trait.TinkerTantrumTraits;
 import com.emperdog.tinkertantrum.helpers.AncientSpellcraftHelper;

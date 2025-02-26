@@ -1,5 +1,6 @@
-package com.emperdog.tinkertantrum.material;
+package com.emperdog.tinkertantrum.material.armory;
 
+import com.emperdog.tinkertantrum.material.MaterialBuilder;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.AbstractMaterialStats;
 import slimeknights.tconstruct.library.materials.Material;

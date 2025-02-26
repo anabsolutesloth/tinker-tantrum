@@ -9,6 +9,9 @@ import com.emperdog.tinkertantrum.trait.ftbmoney.TraitCapitalism;
 import com.emperdog.tinkertantrum.trait.mysticalagriculture.TraitEssencePowered;
 import com.emperdog.tinkertantrum.trait.rats.TraitCheeseReaper;
 import com.emperdog.tinkertantrum.trait.thaumcraft.TraitWarped;
+import com.emperdog.tinkertantrum.trait.vampirism.ModifierBloodDrain;
+import de.teamlapen.vampirism.core.ModItems;
+import net.minecraft.init.Items;
 import net.minecraftforge.fml.common.Loader;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 
@@ -18,8 +21,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import static com.emperdog.tinkertantrum.TinkerTantrumMod.conarmLoaded;
 
 public class TinkerTantrumTraits {
 
@@ -60,6 +61,10 @@ public class TinkerTantrumTraits {
      * Instances instantiated is determined by a config value.
      */
     public static final Map<Integer, TraitWarped> WARPED = new HashMap<>();
+
+
+    //Vampirism
+    public static final ModifierBloodDrain BLOOD_DRAIN = new ModifierBloodDrain();
 
 
 
@@ -114,6 +119,8 @@ public class TinkerTantrumTraits {
 
         TOOL_MODIFIERS.add(SELLOUT);
 
+        TOOL_MODIFIERS.add(BLOOD_DRAIN);
+
         AVAILABLE_TOOL_MODIFIERS.addAll(filterAvailableModifiers(TOOL_MODIFIERS));
 
 
@@ -143,5 +150,8 @@ public class TinkerTantrumTraits {
     public static void initModifierRecipes() {
         if(Loader.isModLoaded("ftbmoney"))
             SELLOUT.addItem("blockGold");
+
+        if(Loader.isModLoaded("vampirism"))
+            BLOOD_DRAIN.addItem(ModItems.blood_infused_iron_ingot);
     }
 }

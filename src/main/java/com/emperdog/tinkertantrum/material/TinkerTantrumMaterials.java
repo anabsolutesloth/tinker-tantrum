@@ -43,8 +43,7 @@ public class TinkerTantrumMaterials {
                 .addMaterialStats(new HeadMaterialStats(57, 4.5f, 5.0f, HarvestLevels.DIAMOND),
                         new HandleMaterialStats(0.6f, 125),
                         new ExtraMaterialStats(90))
-                .addTraits(MaterialTypes.HEAD, TinkerTantrumTraits.NIHILO)
-                .addTraits(MaterialTypes.HEAD, TinkerTantrumTraits.WARPED.get(2))
+                .addTraits(MaterialTypes.HEAD, TinkerTantrumTraits.NIHILO, TinkerTantrumTraits.WARPED.get(2))
                 .build();
     }
 

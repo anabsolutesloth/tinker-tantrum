@@ -18,11 +18,13 @@ public class TinkerTantrumConfig extends Configuration {
             "default: [3.0]"
     })
     public static float supercriticalModifier = 3.0f;
+
     @Config.Comment({
             "How much charge is added per hit for the Supercritical trait.",
             "default: [0.05]"
     })
     public static float supercriticalChargePerHit = 0.05f;
+
     @Config.Comment({
             "Maximum amount of bonus Charge added per hit for the Supercritical trait.",
             "Actual charge added is this value divided by 100.",

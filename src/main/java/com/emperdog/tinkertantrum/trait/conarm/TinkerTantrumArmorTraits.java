@@ -16,7 +16,6 @@ import thaumcraft.api.items.ItemsTC;
 
 import java.util.*;
 
-import static com.emperdog.tinkertantrum.TinkerTantrumMod.conarmLoaded;
 import static com.emperdog.tinkertantrum.trait.TinkerTantrumTraits.ARMOR_MODIFIERS;
 import static com.emperdog.tinkertantrum.trait.TinkerTantrumTraits.AVAILABLE_ARMOR_MODIFIERS;
 

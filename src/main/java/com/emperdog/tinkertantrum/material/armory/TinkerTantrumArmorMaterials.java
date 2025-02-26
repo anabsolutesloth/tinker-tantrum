@@ -1,10 +1,11 @@
-package com.emperdog.tinkertantrum.material;
+package com.emperdog.tinkertantrum.material.armory;
 
 import c4.conarm.lib.materials.ArmorMaterialType;
 import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.materials.PlatesMaterialStats;
 import c4.conarm.lib.materials.TrimMaterialStats;
 import com.emperdog.tinkertantrum.TinkerTantrumMod;
+import com.emperdog.tinkertantrum.material.TinkerTantrumMaterials;
 import com.emperdog.tinkertantrum.trait.TinkerTantrumTraits;
 import com.emperdog.tinkertantrum.trait.conarm.TinkerTantrumArmorTraits;
 

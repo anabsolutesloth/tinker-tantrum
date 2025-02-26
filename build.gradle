@@ -111,32 +111,6 @@ repositories {
         name = "CurseMaven"
         url = "https://www.cursemaven.com/"
     }
-    maven {
-        name = "CoFH Maven"
-        url = "https://maven.covers1624.net"
-    }
-    maven {
-        name = "BlameJared Maven"
-        url = "https://maven.blamejared.com/"
-    }
-    maven {
-        name = "tterrag Maven"
-        url = "https://maven.tterrag.com/"
-    }
-    maven {
-        // location of the maven that hosts JEI files
-        name = "Progwml6 maven"
-        url = "https://dvs1.progwml6.com/files/maven/"
-    }
-    maven {
-        // location of a maven mirror for JEI files, as a fallback
-        name = "ModMaven"
-        url = "https://modmaven.dev"
-    }
-    maven {
-        name = "Thiakil Maven"
-        url = "https://maven.thiakil.com/"
-    }
 }
 
 dependencies {

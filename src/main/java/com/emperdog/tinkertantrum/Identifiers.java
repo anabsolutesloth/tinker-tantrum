@@ -38,6 +38,10 @@ public class Identifiers {
     public static final String MOD_WIZARDRY = "wizardry";
 
 
+    //Vampirism
+    public static final String MOD_BLOOD_DRAIN = "blood_drain";
+
+
     //Materials
     public static final String MAT_CHEAT_MATERIAL = "cheat_material";
 

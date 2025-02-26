@@ -34,6 +34,9 @@ modifier.warped.name=Warped
 modifier.warped.desc=§5§oYou have gained Permanent Warp!§r\nThis equipment has some level of Warp.
 modifier.warped.extra=§5Warped %s
 
+modifier.blood_drain.name=Blood Drain
+modifier.blood_drain.desc=§oI'm going to suck your Blood!§r\nDrains Blood from killed foes, and if you're a Vampire, feeds you with it.
+
 
 # Armor-Specific
 modifier.antimagic_armor.name=Anti-magic
